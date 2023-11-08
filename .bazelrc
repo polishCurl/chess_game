@@ -1,0 +1,12 @@
+build --cxxopt='-std=c++14'
+build --cxxopt='-Werror'
+build --cxxopt='-Wall'
+build --cxxopt='-O3'
+build --color=yes
+build --verbose_failures
+
+test --cxxopt='-O0'
+test --cxxopt='-g'
+
+coverage --combined_report=lcov
+coverage --instrument_test_targets
