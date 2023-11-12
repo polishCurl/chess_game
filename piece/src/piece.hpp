@@ -1,7 +1,7 @@
 #ifndef CHESS_GAME_PIECE_SRC_PIECE_HPP_
 #define CHESS_GAME_PIECE_SRC_PIECE_HPP_
 
-#include "piece_utilities/piece_utilities.hpp"
+#include "src/piece_utilities/move.hpp"
 
 namespace chess {
 
@@ -11,9 +11,13 @@ class Piece {
  public:
   virtual char getSymbol() const = 0;
   virtual Position getPosition() const = 0;
-  virtual bool canMove(Position const& nextition) const = 0;
-  virtual bool move(Position const& nextition) const = 0;
+  virtual bool canMove(const Position& next) const = 0;
+  virtual bool move(const Position& next) const = 0;
   virtual bool hasBeenMoved() const = 0;
+  virtual char getSymbol() const = 0;
+  virtual const char* getName() const = 0;
+  virtual Color getColor() const = 0;
+
   virtual ~Piece() = default;
 };
 
