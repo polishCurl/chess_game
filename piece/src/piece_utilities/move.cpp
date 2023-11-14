@@ -6,8 +6,6 @@ namespace chess {
 
 namespace piece {
 
-constexpr int kChessBoardRows{8};
-constexpr int kChessBoardCols{8};
 const Position kNoDistance{0, 0};
 
 bool Move::isWithinChessBoard(const Position &pos) {
