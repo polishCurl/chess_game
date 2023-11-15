@@ -6,40 +6,40 @@ using namespace chess::piece;
 
 TEST(PositionTest, Constructor) {
   Position position{2, 3};
-  EXPECT_EQ(position.row, 2);
-  EXPECT_EQ(position.col, 3);
+  EXPECT_EQ(position.row_, 2);
+  EXPECT_EQ(position.col_, 3);
 }
 
 TEST(PositionTest, Assignment) {
   Position position{2, 3};
-  position.row = -1;
-  position.col = 32;
-  EXPECT_EQ(position.row, -1);
-  EXPECT_EQ(position.col, 32);
+  position.row_ = -1;
+  position.col_ = 32;
+  EXPECT_EQ(position.row_, -1);
+  EXPECT_EQ(position.col_, 32);
 }
 
 TEST(PositionTest, CopySemantics) {
   Position a{2, 3};
   Position b{a};
-  EXPECT_EQ(b.row, 2);
-  EXPECT_EQ(b.col, 3);
+  EXPECT_EQ(b.row_, 2);
+  EXPECT_EQ(b.col_, 3);
   Position c{-2, 132};
   b = c;
-  EXPECT_EQ(b.row, -2);
-  EXPECT_EQ(b.col, 132);
+  EXPECT_EQ(b.row_, -2);
+  EXPECT_EQ(b.col_, 132);
 }
 
 TEST(PositionTest, MoveSemantics) {
   Position a{2, 3};
   Position b{std::move(a)};
-  EXPECT_EQ(b.row, 2);
-  EXPECT_EQ(b.col, 3);
-  EXPECT_EQ(a.row, 2);
-  EXPECT_EQ(a.col, 3);
+  EXPECT_EQ(b.row_, 2);
+  EXPECT_EQ(b.col_, 3);
+  EXPECT_EQ(a.row_, 2);
+  EXPECT_EQ(a.col_, 3);
   Position c{-2, 132};
   b = std::move(c);
-  EXPECT_EQ(b.row, -2);
-  EXPECT_EQ(b.col, 132);
+  EXPECT_EQ(b.row_, -2);
+  EXPECT_EQ(b.col_, 132);
 }
 
 TEST(PositionTest, StringConstructor) {

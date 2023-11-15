@@ -22,8 +22,8 @@ class Position {
   bool operator==(const Position &other) const;
   bool operator!=(const Position &other) const;
 
-  int row;
-  int col;
+  int row_;
+  int col_;
 
  private:
   void swap(Position &other);

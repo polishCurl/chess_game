@@ -9,7 +9,7 @@ namespace chess {
 
 namespace piece {
 
-Position::Position(int row, int col) : row{row}, col{col} {}
+Position::Position(int row, int col) : row_{row}, col_{col} {}
 
 Position::Position(const std::string &coordinates) {
   if ((coordinates.size() != 2) || (coordinates[0] < 'A') ||
@@ -20,8 +20,8 @@ Position::Position(const std::string &coordinates) {
     throw std::invalid_argument(error_msg.str());
   }
 
-  this->row = kChessBoardRows - static_cast<int>(coordinates[1] - '0');
-  this->col = static_cast<int>(coordinates[0] - 'A');
+  this->row_ = kChessBoardRows - static_cast<int>(coordinates[1] - '0');
+  this->col_ = static_cast<int>(coordinates[0] - 'A');
 }
 
 Position &Position::operator=(const std::string &coordinates) {
@@ -31,24 +31,24 @@ Position &Position::operator=(const std::string &coordinates) {
 }
 
 Position Position::operator+(const Position &other) const {
-  return {row + other.row, col + other.col};
+  return {row_ + other.row_, col_ + other.col_};
 }
 
 Position Position::operator-(const Position &other) const {
-  return {row - other.row, col - other.col};
+  return {row_ - other.row_, col_ - other.col_};
 }
 
 bool Position::operator==(const Position &other) const {
-  return (row == other.row) && (col == other.col);
+  return (row_ == other.row_) && (col_ == other.col_);
 }
 
 bool Position::operator!=(const Position &other) const {
-  return (row != other.row) || (col != other.col);
+  return (row_ != other.row_) || (col_ != other.col_);
 }
 
 void Position::swap(Position &other) {
-  std::swap(this->row, other.row);
-  std::swap(this->col, other.col);
+  std::swap(this->row_, other.row_);
+  std::swap(this->col_, other.col_);
 }
 
 }  // namespace piece
