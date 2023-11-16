@@ -45,3 +45,24 @@ cc_library(
     strip_include_prefix = "",
     deps = [":move"],
 )
+
+cc_library(
+    name = "king",
+    srcs = [
+        "src/king/king.cpp",
+    ],
+    hdrs = [
+        "src/king/king.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":piece"],
+)
+
+cc_test(
+    name = "king_test",
+    srcs = ["test/king/king_test.cpp"],
+    deps = [
+        ":king",
+        "@googletest//:gtest_main",
+    ],
+)
