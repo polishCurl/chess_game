@@ -97,3 +97,18 @@ TEST(PositionTest, Subtraction) {
             (Position{1, 3} - Position{1, 1}));
   EXPECT_EQ((Position{-6, -5}), (Position{-1, -7} - Position{5, -2}));
 }
+
+TEST(PositionTest, ConversionToString) {
+  EXPECT_EQ(std::string(Position{0, 0}), "A8");
+  EXPECT_EQ(static_cast<std::string>(Position{7, 7}), "H1");
+  EXPECT_EQ(static_cast<std::string>(Position{2, 5}), "F6");
+  EXPECT_EQ(static_cast<std::string>(Position{6, 6}), "G2");
+  EXPECT_THROW((void)static_cast<std::string>(Position{0, -1}),
+               std::out_of_range);
+  EXPECT_THROW((void)static_cast<std::string>(Position{-1, 0}),
+               std::out_of_range);
+  EXPECT_THROW((void)static_cast<std::string>(Position{0, 8}),
+               std::out_of_range);
+  EXPECT_THROW((void)static_cast<std::string>(Position{8, 0}),
+               std::out_of_range);
+}

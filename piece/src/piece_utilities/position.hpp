@@ -21,6 +21,7 @@ class Position {
   Position operator-(const Position &other) const;
   bool operator==(const Position &other) const;
   bool operator!=(const Position &other) const;
+  operator std::string() const;
 
   int row_;
   int col_;

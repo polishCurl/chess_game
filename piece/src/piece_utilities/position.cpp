@@ -46,6 +46,20 @@ bool Position::operator!=(const Position &other) const {
   return (row_ != other.row_) || (col_ != other.col_);
 }
 
+Position::operator std::string() const {
+  if ((row_ < 0) || (row_ >= kChessBoardRows) || (col_ < 0) ||
+      (col_ >= kChessBoardCols)) {
+    std::stringstream error_msg;
+    error_msg << "Failed to convert (" << row_ << ',' << col_
+              << ") to chess coordinates!";
+    throw std::out_of_range(error_msg.str());
+  }
+
+  const char row = static_cast<char>(kChessBoardRows - row_) + '0';
+  const char col = 'A' + static_cast<char>(col_);
+  return {std::string(1, col) + row};
+}
+
 void Position::swap(Position &other) {
   std::swap(this->row_, other.row_);
   std::swap(this->col_, other.col_);

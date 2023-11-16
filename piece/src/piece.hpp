@@ -9,12 +9,10 @@ namespace piece {
 
 class Piece {
  public:
-  virtual char getSymbol() const = 0;
   virtual Position getPosition() const = 0;
   virtual bool canMove(const Position& next) const = 0;
   virtual bool move(const Position& next) const = 0;
   virtual bool hasBeenMoved() const = 0;
-  virtual char getSymbol() const = 0;
   virtual const char* getName() const = 0;
   virtual Color getColor() const = 0;
 
