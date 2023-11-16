@@ -1,22 +1,23 @@
 #ifndef CHESS_GAME_PIECE_SRC_PIECE_HPP_
 #define CHESS_GAME_PIECE_SRC_PIECE_HPP_
 
-#include "src/piece_utilities/move.hpp"
+#include "src/ipiece.hpp"
 
 namespace chess {
 
 namespace piece {
 
-class Piece {
+class Piece : public IPiece {
  public:
-  virtual Position getPosition() const = 0;
-  virtual bool canMove(const Position& next) const = 0;
-  virtual bool move(const Position& next) const = 0;
-  virtual bool hasBeenMoved() const = 0;
-  virtual const char* getName() const = 0;
-  virtual Color getColor() const = 0;
+  Piece(const Position& position, Color color);
+  Position getPosition() const override;
+  bool hasBeenMoved() const override;
+  Color getColor() const override;
 
-  virtual ~Piece() = default;
+ protected:
+  Position position_;
+  const Color color_;
+  bool has_been_moved_;
 };
 
 }  // namespace piece

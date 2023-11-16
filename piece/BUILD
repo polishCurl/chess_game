@@ -35,7 +35,13 @@ cc_test(
 
 cc_library(
     name = "piece",
-    srcs = ["src/piece.hpp"],
+    srcs = [
+        "src/piece.cpp",
+    ],
+    hdrs = [
+        "src/ipiece.hpp",
+        "src/piece.hpp",
+    ],
     strip_include_prefix = "",
     deps = [":move"],
 )
