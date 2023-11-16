@@ -17,12 +17,13 @@ class Position {
   Position(int row, int col);
   Position(const std::string &coordinates);
   Position &operator=(const std::string &coordinates);
-  Position operator+(const Position &other) const;
-  Position operator-(const Position &other) const;
   bool operator==(const Position &other) const;
   bool operator!=(const Position &other) const;
   operator std::string() const;
 
+  friend class Move;
+
+ private:
   int row_;
   int col_;
 

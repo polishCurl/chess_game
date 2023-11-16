@@ -13,12 +13,9 @@ enum class Color { Black, White };
 
 class Move {
  public:
-  static bool isWithinChessBoard(const Position &pos);
   static bool isDiagonal(const Position &prev, const Position &next);
   static bool isForward(const Position &prev, const Position &next,
                         Color color);
-  static bool isBackward(const Position &prev, const Position &next,
-                         Color color);
   static bool isSide(const Position &prev, const Position &next);
   static bool isByOne(const Position &prev, const Position &next);
 };
