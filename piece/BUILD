@@ -129,3 +129,24 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "knight",
+    srcs = [
+        "src/knight/knight.cpp",
+    ],
+    hdrs = [
+        "src/knight/knight.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":piece"],
+)
+
+cc_test(
+    name = "knight_test",
+    srcs = ["test/knight/knight_test.cpp"],
+    deps = [
+        ":knight",
+        "@googletest//:gtest_main",
+    ],
+)
