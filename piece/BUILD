@@ -87,3 +87,24 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "rook",
+    srcs = [
+        "src/rook/rook.cpp",
+    ],
+    hdrs = [
+        "src/rook/rook.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":piece"],
+)
+
+cc_test(
+    name = "rook_test",
+    srcs = ["test/rook/rook_test.cpp"],
+    deps = [
+        ":rook",
+        "@googletest//:gtest_main",
+    ],
+)
