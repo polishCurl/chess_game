@@ -82,9 +82,12 @@ TEST_P(RookColorFixture, Move) {
 
 TEST_P(RookColorFixture, HasBeenMoved) {
   Rook rook{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(rook.hasBeenMoved());
   EXPECT_FALSE(rook.move(Position{"A5"}));
   EXPECT_FALSE(rook.hasBeenMoved());
   EXPECT_TRUE(rook.move(Position{"A6"}));
+  EXPECT_TRUE(rook.hasBeenMoved());
+  EXPECT_FALSE(rook.move(Position{"A6"}));
   EXPECT_TRUE(rook.hasBeenMoved());
 }
 

@@ -82,9 +82,12 @@ TEST_P(QueenColorFixture, Move) {
 
 TEST_P(QueenColorFixture, HasBeenMoved) {
   Queen queen{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(queen.hasBeenMoved());
   EXPECT_FALSE(queen.move(Position{"H7"}));
   EXPECT_FALSE(queen.hasBeenMoved());
   EXPECT_TRUE(queen.move(Position{"G1"}));
+  EXPECT_TRUE(queen.hasBeenMoved());
+  EXPECT_FALSE(queen.move(Position{"G1"}));
   EXPECT_TRUE(queen.hasBeenMoved());
 }
 

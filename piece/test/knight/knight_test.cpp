@@ -84,9 +84,12 @@ TEST_P(KnightColorFixture, Move) {
 
 TEST_P(KnightColorFixture, HasBeenMoved) {
   Knight knight{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(knight.hasBeenMoved());
   EXPECT_FALSE(knight.move(Position{"B4"}));
   EXPECT_FALSE(knight.hasBeenMoved());
   EXPECT_TRUE(knight.move(Position{"D5"}));
+  EXPECT_TRUE(knight.hasBeenMoved());
+  EXPECT_FALSE(knight.move(Position{"D5"}));
   EXPECT_TRUE(knight.hasBeenMoved());
 }
 

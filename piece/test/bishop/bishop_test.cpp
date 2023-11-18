@@ -82,9 +82,12 @@ TEST_P(BishopColorFixture, Move) {
 
 TEST_P(BishopColorFixture, HasBeenMoved) {
   Bishop bishop{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(bishop.hasBeenMoved());
   EXPECT_FALSE(bishop.move(Position{"A8"}));
   EXPECT_FALSE(bishop.hasBeenMoved());
   EXPECT_TRUE(bishop.move(Position{"A7"}));
+  EXPECT_TRUE(bishop.hasBeenMoved());
+  EXPECT_FALSE(bishop.move(Position{"A7"}));
   EXPECT_TRUE(bishop.hasBeenMoved());
 }
 

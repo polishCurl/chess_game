@@ -74,9 +74,12 @@ TEST_P(KingColorFixture, Move) {
 
 TEST_P(KingColorFixture, HasBeenMoved) {
   King king{Position{"H8"}, GetParam()};
+  EXPECT_FALSE(king.hasBeenMoved());
   EXPECT_FALSE(king.move(Position{"H6"}));
   EXPECT_FALSE(king.hasBeenMoved());
   EXPECT_TRUE(king.move(Position{"G7"}));
+  EXPECT_TRUE(king.hasBeenMoved());
+  EXPECT_FALSE(king.move(Position{"G7"}));
   EXPECT_TRUE(king.hasBeenMoved());
 }
 
