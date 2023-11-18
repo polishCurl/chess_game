@@ -24,6 +24,13 @@ bool Move::isForward(const Position &prev, const Position &next, Color color) {
                              ((row_diff < 0) && (color == Color::White)));
 }
 
+bool Move::isBackward(const Position &prev, const Position &next, Color color) {
+  const auto row_diff = next.row_ - prev.row_;
+  const auto col_diff = next.col_ - prev.col_;
+  return (col_diff == 0) && (((row_diff < 0) && (color == Color::Black)) ||
+                             ((row_diff > 0) && (color == Color::White)));
+}
+
 bool Move::isSide(const Position &prev, const Position &next) {
   const auto row_diff = next.row_ - prev.row_;
   const auto col_diff = next.col_ - prev.col_;

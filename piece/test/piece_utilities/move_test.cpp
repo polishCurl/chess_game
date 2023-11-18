@@ -39,6 +39,24 @@ TEST(MoveTest, IsForward) {
   EXPECT_FALSE(Move::isForward(Position{"B2"}, Position{"B5"}, Color::Black));
 }
 
+TEST(MoveTest, IsBackward) {
+  EXPECT_FALSE(Move::isBackward(Position{1, 1}, Position{1, 1}, Color::Black));
+  EXPECT_FALSE(Move::isBackward(Position{1, 1}, Position{1, 1}, Color::White));
+  EXPECT_FALSE(Move::isBackward(Position{1, 1}, Position{2, 1}, Color::Black));
+  EXPECT_TRUE(Move::isBackward(Position{1, 1}, Position{2, 1}, Color::White));
+  EXPECT_TRUE(Move::isBackward(Position{1, 1}, Position{0, 1}, Color::Black));
+  EXPECT_FALSE(Move::isBackward(Position{1, 1}, Position{0, 1}, Color::White));
+  EXPECT_FALSE(Move::isBackward(Position{1, 1}, Position{2, 4}, Color::Black));
+  EXPECT_FALSE(Move::isBackward(Position{1, 1}, Position{2, 4}, Color::White));
+  EXPECT_FALSE(Move::isBackward(Position{4, 5}, Position{7, 5}, Color::Black));
+  EXPECT_FALSE(Move::isBackward(Position{4, 5}, Position{1, 5}, Color::White));
+
+  EXPECT_TRUE(Move::isBackward(Position{"D4"}, Position{"D1"}, Color::White));
+  EXPECT_TRUE(Move::isBackward(Position{"H1"}, Position{"H8"}, Color::Black));
+  EXPECT_FALSE(Move::isBackward(Position{"B6"}, Position{"A1"}, Color::White));
+  EXPECT_FALSE(Move::isBackward(Position{"F7"}, Position{"E8"}, Color::Black));
+}
+
 TEST(MoveTest, IsSide) {
   EXPECT_FALSE(Move::isSide(Position{1, 1}, Position{1, 1}));
   EXPECT_FALSE(Move::isSide(Position{1, 1}, Position{2, 2}));
