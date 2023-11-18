@@ -108,3 +108,24 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "bishop",
+    srcs = [
+        "src/bishop/bishop.cpp",
+    ],
+    hdrs = [
+        "src/bishop/bishop.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":piece"],
+)
+
+cc_test(
+    name = "bishop_test",
+    srcs = ["test/bishop/bishop_test.cpp"],
+    deps = [
+        ":bishop",
+        "@googletest//:gtest_main",
+    ],
+)
