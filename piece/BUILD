@@ -66,3 +66,24 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "queen",
+    srcs = [
+        "src/queen/queen.cpp",
+    ],
+    hdrs = [
+        "src/queen/queen.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":piece"],
+)
+
+cc_test(
+    name = "queen_test",
+    srcs = ["test/queen/queen_test.cpp"],
+    deps = [
+        ":queen",
+        "@googletest//:gtest_main",
+    ],
+)
