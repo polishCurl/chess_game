@@ -150,3 +150,24 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "pawn",
+    srcs = [
+        "src/pawn/pawn.cpp",
+    ],
+    hdrs = [
+        "src/pawn/pawn.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":piece"],
+)
+
+cc_test(
+    name = "pawn_test",
+    srcs = ["test/pawn/pawn_test.cpp"],
+    deps = [
+        ":pawn",
+        "@googletest//:gtest_main",
+    ],
+)
