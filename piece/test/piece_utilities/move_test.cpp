@@ -90,4 +90,73 @@ TEST(MoveTest, IsByOne) {
   EXPECT_FALSE(Move::isByOne(Position{2, 5}, Position{2, 3}));
 }
 
-// TODO: Add remaining Move class tests
+TEST(MoveTest, IsPawnStartingMove) {
+  EXPECT_TRUE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E4"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E4"}, Color::Black));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E3"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E3"}, Color::Black));
+
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"G7"}, Position{"G5"}, Color::White));
+  EXPECT_TRUE(
+      Move::isPawnStartingMove(Position{"G7"}, Position{"G5"}, Color::Black));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"G7"}, Position{"G6"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"G7"}, Position{"G6"}, Color::Black));
+
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E1"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E1"}, Color::Black));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"F3"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"F3"}, Color::Black));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"D3"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"D3"}, Color::Black));
+
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E8"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"E8"}, Color::Black));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"A2"}, Color::White));
+  EXPECT_FALSE(
+      Move::isPawnStartingMove(Position{"E2"}, Position{"A2"}, Color::Black));
+}
+
+TEST(MoveTest, IsKnightMove) {
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{1, 1}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{2, 2}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{0, 0}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{2, 0}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{0, 2}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{1, 2}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{1, 0}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{2, 1}));
+  EXPECT_FALSE(Move::isKnightMove(Position{1, 1}, Position{0, 1}));
+
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"B6"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"C6"}));
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"D6"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"E6"}));
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"F6"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"F5"}));
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"F4"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"F3"}));
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"F2"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"E2"}));
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"D2"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"C2"}));
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"B2"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"B3"}));
+  EXPECT_FALSE(Move::isKnightMove(Position{"D4"}, Position{"B4"}));
+  EXPECT_TRUE(Move::isKnightMove(Position{"D4"}, Position{"B5"}));
+}

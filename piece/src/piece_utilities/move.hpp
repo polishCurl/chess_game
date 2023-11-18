@@ -13,13 +13,16 @@ enum class Color { Black, White };
 
 class Move {
  public:
-  static bool isDiagonal(const Position &prev, const Position &next);
-  static bool isForward(const Position &prev, const Position &next,
+  static bool isDiagonal(const Position &curr, const Position &next);
+  static bool isForward(const Position &curr, const Position &next,
                         Color color);
-  static bool isBackward(const Position &prev, const Position &next,
+  static bool isBackward(const Position &curr, const Position &next,
                          Color color);
-  static bool isSide(const Position &prev, const Position &next);
-  static bool isByOne(const Position &prev, const Position &next);
+  static bool isSide(const Position &curr, const Position &next);
+  static bool isByOne(const Position &curr, const Position &next);
+  static bool isPawnStartingMove(const Position &curr, const Position &next,
+                                 Color color);
+  static bool isKnightMove(const Position &curr, const Position &next);
 };
 
 }  // namespace piece
