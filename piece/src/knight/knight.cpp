@@ -8,7 +8,7 @@ Knight::Knight(const Position& position, Color color)
     : Piece{position, color} {}
 
 bool Knight::canMove(const Position& next) const {
-  return Move::isKnightMove(position_, next);
+  return Move::isKnightMove({position_, next});
 }
 
 bool Knight::move(const Position& next) {

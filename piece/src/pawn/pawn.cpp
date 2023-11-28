@@ -8,9 +8,9 @@ Pawn::Pawn(const Position& position, Color color) : Piece{position, color} {}
 
 bool Pawn::canMove(const Position& next) const {
   const auto is_valid_first_move =
-      !has_been_moved_ && Move::isPawnStartingMove(position_, next, color_);
-  const auto is_valid_move = Move::isForward(position_, next, color_) &&
-                             Move::isByOne(position_, next);
+      !has_been_moved_ && Move::isPawnStartingMove({position_, next}, color_);
+  const auto is_valid_move = Move::isForward({position_, next}, color_) &&
+                             Move::isByOne({position_, next});
   return is_valid_first_move || is_valid_move;
 }
 

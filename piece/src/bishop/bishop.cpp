@@ -8,7 +8,7 @@ Bishop::Bishop(const Position& position, Color color)
     : Piece{position, color} {}
 
 bool Bishop::canMove(const Position& next) const {
-  return Move::isDiagonal(position_, next);
+  return Move::isDiagonal({position_, next});
 }
 
 bool Bishop::move(const Position& next) {

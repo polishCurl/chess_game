@@ -7,7 +7,7 @@ namespace piece {
 King::King(const Position& position, Color color) : Piece{position, color} {}
 
 bool King::canMove(const Position& next) const {
-  return Move::isByOne(position_, next);
+  return Move::isByOne({position_, next});
 }
 
 bool King::move(const Position& next) {

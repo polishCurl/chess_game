@@ -7,9 +7,9 @@ namespace piece {
 Rook::Rook(const Position& position, Color color) : Piece{position, color} {}
 
 bool Rook::canMove(const Position& next) const {
-  return Move::isBackward(position_, next, color_) ||
-         Move::isForward(position_, next, color_) ||
-         Move::isSide(position_, next);
+  return Move::isBackward({position_, next}, color_) ||
+         Move::isForward({position_, next}, color_) ||
+         Move::isSide({position_, next});
   ;
 }
 

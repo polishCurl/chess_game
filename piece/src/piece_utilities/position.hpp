@@ -21,7 +21,7 @@ class Position {
   bool operator!=(const Position &other) const;
   operator std::string() const;
 
-  friend class Move;
+  friend struct Move;
 
  private:
   int row_;
