@@ -31,6 +31,11 @@ TEST_P(RookColorFixture, GetName) {
   EXPECT_EQ(rook.getName(), std::string("Rook"));
 }
 
+TEST_P(RookColorFixture, GetType) {
+  const Rook rook{Position{"H1"}, GetParam()};
+  EXPECT_EQ(rook.getType(), PieceType::kRook);
+}
+
 TEST_P(RookColorFixture, CanMove) {
   const Rook rook{Position{"E2"}, GetParam()};
   EXPECT_FALSE(rook.canMove(Position{"E2"}));

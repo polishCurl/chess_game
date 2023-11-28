@@ -58,6 +58,11 @@ TEST_P(PawnColorFixture, GetName) {
   EXPECT_EQ(pawn.getName(), std::string("Pawn"));
 }
 
+TEST_P(PawnColorFixture, GetType) {
+  const Pawn pawn{Position{"H1"}, GetParam()};
+  EXPECT_EQ(pawn.getType(), PieceType::kPawn);
+}
+
 // TODO: Complete Pawn unit tests
 /*
 TEST_P(PawnColorFixture, CanMove) {

@@ -31,6 +31,11 @@ TEST_P(KnightColorFixture, GetName) {
   EXPECT_EQ(knight.getName(), std::string("Knight"));
 }
 
+TEST_P(KnightColorFixture, GetType) {
+  const Knight knight{Position{"H1"}, GetParam()};
+  EXPECT_EQ(knight.getType(), PieceType::kKnight);
+}
+
 TEST_P(KnightColorFixture, CanMove) {
   const Knight knight{Position{"D4"}, GetParam()};
   EXPECT_FALSE(knight.canMove(Position{"D4"}));

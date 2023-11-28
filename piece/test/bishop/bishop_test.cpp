@@ -31,6 +31,11 @@ TEST_P(BishopColorFixture, GetName) {
   EXPECT_EQ(bishop.getName(), std::string("Bishop"));
 }
 
+TEST_P(BishopColorFixture, GetType) {
+  const Bishop bishop{Position{"H1"}, GetParam()};
+  EXPECT_EQ(bishop.getType(), PieceType::kBishop);
+}
+
 TEST_P(BishopColorFixture, CanMove) {
   const Bishop bishop{Position{"E2"}, GetParam()};
   EXPECT_FALSE(bishop.canMove(Position{"E2"}));

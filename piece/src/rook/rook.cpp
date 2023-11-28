@@ -26,5 +26,7 @@ bool Rook::move(const Position& next) {
 
 const char* Rook::getName() const { return kName; };
 
+PieceType Rook::getType() const { return PieceType::kRook; }
+
 }  // namespace piece
 }  // namespace chess

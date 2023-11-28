@@ -31,6 +31,11 @@ TEST_P(KingColorFixture, GetName) {
   EXPECT_EQ(king.getName(), std::string("King"));
 }
 
+TEST_P(KingColorFixture, GetType) {
+  const King king{Position{"H1"}, GetParam()};
+  EXPECT_EQ(king.getType(), PieceType::kKing);
+}
+
 TEST_P(KingColorFixture, CanMove) {
   const King king{Position{"E2"}, GetParam()};
   EXPECT_FALSE(king.canMove(Position{"E2"}));

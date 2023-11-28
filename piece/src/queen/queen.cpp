@@ -26,5 +26,7 @@ bool Queen::move(const Position& next) {
 
 const char* Queen::getName() const { return kName; };
 
+PieceType Queen::getType() const { return PieceType::kQueen; }
+
 }  // namespace piece
 }  // namespace chess

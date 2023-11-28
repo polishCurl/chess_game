@@ -8,6 +8,8 @@ namespace chess {
 
 namespace piece {
 
+enum class PieceType { kPawn, kKnight, kBishop, kRook, kQueen, kKing };
+
 class IPiece {
  public:
   virtual Position getPosition() const = 0;
@@ -16,6 +18,7 @@ class IPiece {
   virtual bool hasBeenMoved() const = 0;
   virtual const char* getName() const = 0;
   virtual Color getColor() const = 0;
+  virtual PieceType getType() const = 0;
 
   virtual ~IPiece() = default;
 };

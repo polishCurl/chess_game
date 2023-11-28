@@ -31,6 +31,11 @@ TEST_P(QueenColorFixture, GetName) {
   EXPECT_EQ(queen.getName(), std::string("Queen"));
 }
 
+TEST_P(QueenColorFixture, GetType) {
+  const Queen queen{Position{"H1"}, GetParam()};
+  EXPECT_EQ(queen.getType(), PieceType::kQueen);
+}
+
 TEST_P(QueenColorFixture, CanMove) {
   const Queen queen{Position{"E2"}, GetParam()};
   EXPECT_FALSE(queen.canMove(Position{"E2"}));

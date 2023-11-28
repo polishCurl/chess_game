@@ -27,5 +27,7 @@ bool Pawn::move(const Position& next) {
 
 const char* Pawn::getName() const { return kName; };
 
+PieceType Pawn::getType() const { return PieceType::kPawn; }
+
 }  // namespace piece
 }  // namespace chess

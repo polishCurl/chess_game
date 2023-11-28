@@ -24,5 +24,7 @@ bool Knight::move(const Position& next) {
 
 const char* Knight::getName() const { return kName; };
 
+PieceType Knight::getType() const { return PieceType::kKnight; }
+
 }  // namespace piece
 }  // namespace chess

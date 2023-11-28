@@ -13,6 +13,7 @@ class Rook : public Piece {
   bool canMove(const Position& next) const override;
   bool move(const Position& next) override;
   const char* getName() const override;
+  PieceType getType() const override;
 
  private:
   static constexpr char kName[]{"Rook"};
