@@ -10,6 +10,9 @@ namespace piece {
 class Knight : public Piece {
  public:
   Knight(const Position& position, Color color);
+  Knight(const Knight&) = delete;
+  Knight operator=(const Knight&) = delete;
+
   bool canMove(const Position& next) const override;
   bool move(const Position& next) override;
   const char* getName() const override;
