@@ -47,6 +47,17 @@ cc_library(
 )
 
 cc_library(
+    name = "piece_mock",
+    testonly = True,
+    hdrs = [
+        "mock/piece_mock.hpp",
+        "src/ipiece.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = ["@googletest//:gtest_main"],
+)
+
+cc_library(
     name = "king",
     srcs = [
         "src/king/king.cpp",
