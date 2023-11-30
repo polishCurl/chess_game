@@ -182,3 +182,33 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "piece_factory",
+    srcs = [
+        "src/piece_factory/piece_factory.cpp",
+    ],
+    hdrs = [
+        "src/piece_factory/ipiece_factory.hpp",
+        "src/piece_factory/piece_factory.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [
+        ":bishop",
+        ":king",
+        ":knight",
+        ":pawn",
+        ":piece",
+        ":queen",
+        ":rook",
+    ],
+)
+
+cc_test(
+    name = "piece_factory_test",
+    srcs = ["test/piece_factory/piece_factory_test.cpp"],
+    deps = [
+        ":piece_factory",
+        "@googletest//:gtest_main",
+    ],
+)
