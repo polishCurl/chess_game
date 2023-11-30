@@ -10,9 +10,6 @@ namespace piece {
 class Pawn : public Piece {
  public:
   Pawn(const Position& position, Color color);
-  Pawn(const Pawn&) = delete;
-  Pawn operator=(const Pawn&) = delete;
-
   bool canMove(const Position& next) const override;
   bool move(const Position& next) override;
   const char* getName() const override;

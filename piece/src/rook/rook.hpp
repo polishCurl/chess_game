@@ -10,9 +10,6 @@ namespace piece {
 class Rook : public Piece {
  public:
   Rook(const Position& position, Color color);
-  Rook(const Rook&) = delete;
-  Rook operator=(const Rook&) = delete;
-
   bool canMove(const Position& next) const override;
   bool move(const Position& next) override;
   const char* getName() const override;
