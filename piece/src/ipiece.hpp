@@ -12,6 +12,13 @@ enum class PieceType { kPawn, kKnight, kBishop, kRook, kQueen, kKing };
 
 class IPiece {
  public:
+  IPiece() = default;
+  IPiece(const IPiece&) = delete;
+  IPiece& operator=(const IPiece&) = delete;
+  IPiece(IPiece&&) = default;
+  IPiece& operator=(IPiece&&) = default;
+
+  virtual ~IPiece() = default;
   virtual Position getPosition() const = 0;
   virtual bool canMove(const Position& next) const = 0;
   virtual bool move(const Position& next) = 0;
@@ -19,8 +26,6 @@ class IPiece {
   virtual const char* getName() const = 0;
   virtual Color getColor() const = 0;
   virtual PieceType getType() const = 0;
-
-  virtual ~IPiece() = default;
 };
 
 }  // namespace piece
