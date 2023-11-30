@@ -1,4 +1,4 @@
-#include "position.hpp"
+#include "src/piece_utilities/position.hpp"
 
 #include <cmath>
 #include <sstream>
