@@ -177,3 +177,10 @@ TEST(MoveTest, Revert) {
   EXPECT_EQ(original_move.curr_, reverted_move.next_);
   EXPECT_EQ(original_move.next_, reverted_move.curr_);
 }
+
+TEST(ColorTest, StreamInsertion) {
+  EXPECT_EQ((std::stringstream{} << Color::White).str(), "white");
+  EXPECT_EQ((std::stringstream{} << Color::Black).str(), "black");
+  EXPECT_EQ((std::stringstream{} << static_cast<Color>(3)).str(),
+            "Invalid color!");
+}
