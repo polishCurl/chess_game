@@ -96,5 +96,14 @@ TEST_P(BishopColorFixture, HasBeenMoved) {
   EXPECT_TRUE(bishop.hasBeenMoved());
 }
 
+TEST_P(BishopColorFixture, StreamInsertion) {
+  Bishop bishop{Position{"B6"}, GetParam()};
+  std::stringstream test;
+  test << bishop;
+  std::stringstream ref;
+  ref << "Bishop (" << GetParam() << ") on B6";
+  EXPECT_EQ(test.str(), ref.str());
+}
+
 INSTANTIATE_TEST_SUITE_P(BishopTest, BishopColorFixture,
                          ::testing::Values(Color::Black, Color::White));

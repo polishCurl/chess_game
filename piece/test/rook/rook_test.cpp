@@ -96,5 +96,14 @@ TEST_P(RookColorFixture, HasBeenMoved) {
   EXPECT_TRUE(rook.hasBeenMoved());
 }
 
+TEST_P(RookColorFixture, StreamInsertion) {
+  Rook rook{Position{"B6"}, GetParam()};
+  std::stringstream test;
+  test << rook;
+  std::stringstream ref;
+  ref << "Rook (" << GetParam() << ") on B6";
+  EXPECT_EQ(test.str(), ref.str());
+}
+
 INSTANTIATE_TEST_SUITE_P(RookTest, RookColorFixture,
                          ::testing::Values(Color::Black, Color::White));

@@ -1,6 +1,8 @@
 #ifndef CHESS_GAME_PIECE_SRC_IPIECE_HPP_
 #define CHESS_GAME_PIECE_SRC_IPIECE_HPP_
 
+#include <iostream>
+
 #include "src/piece_utilities/move.hpp"
 #include "src/piece_utilities/position.hpp"
 
@@ -27,6 +29,12 @@ class IPiece {
   virtual Color getColor() const = 0;
   virtual PieceType getType() const = 0;
 };
+
+inline std::ostream& operator<<(std::ostream& out, const IPiece& piece) {
+  out << piece.getName() << " (" << piece.getColor() << ") on "
+      << std::string(piece.getPosition());
+  return out;
+}
 
 }  // namespace piece
 }  // namespace chess

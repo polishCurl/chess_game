@@ -115,5 +115,14 @@ TEST_P(PawnColorFixture, Move) {
 }
 */
 
+TEST_P(PawnColorFixture, StreamInsertion) {
+  Pawn pawn{Position{"B6"}, GetParam()};
+  std::stringstream test;
+  test << pawn;
+  std::stringstream ref;
+  ref << "Pawn (" << GetParam() << ") on B6";
+  EXPECT_EQ(test.str(), ref.str());
+}
+
 INSTANTIATE_TEST_SUITE_P(PawnTest, PawnColorFixture,
                          ::testing::Values(Color::Black, Color::White));

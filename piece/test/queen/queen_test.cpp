@@ -96,5 +96,14 @@ TEST_P(QueenColorFixture, HasBeenMoved) {
   EXPECT_TRUE(queen.hasBeenMoved());
 }
 
+TEST_P(QueenColorFixture, StreamInsertion) {
+  Queen queen{Position{"B6"}, GetParam()};
+  std::stringstream test;
+  test << queen;
+  std::stringstream ref;
+  ref << "Queen (" << GetParam() << ") on B6";
+  EXPECT_EQ(test.str(), ref.str());
+}
+
 INSTANTIATE_TEST_SUITE_P(QueenTest, QueenColorFixture,
                          ::testing::Values(Color::Black, Color::White));

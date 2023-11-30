@@ -88,5 +88,14 @@ TEST_P(KingColorFixture, HasBeenMoved) {
   EXPECT_TRUE(king.hasBeenMoved());
 }
 
+TEST_P(KingColorFixture, StreamInsertion) {
+  King king{Position{"B6"}, GetParam()};
+  std::stringstream test;
+  test << king;
+  std::stringstream ref;
+  ref << "King (" << GetParam() << ") on B6";
+  EXPECT_EQ(test.str(), ref.str());
+}
+
 INSTANTIATE_TEST_SUITE_P(KingTest, KingColorFixture,
                          ::testing::Values(Color::Black, Color::White));

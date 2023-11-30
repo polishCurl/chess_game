@@ -98,5 +98,14 @@ TEST_P(KnightColorFixture, HasBeenMoved) {
   EXPECT_TRUE(knight.hasBeenMoved());
 }
 
+TEST_P(KnightColorFixture, StreamInsertion) {
+  Knight knight{Position{"B6"}, GetParam()};
+  std::stringstream test;
+  test << knight;
+  std::stringstream ref;
+  ref << "Knight (" << GetParam() << ") on B6";
+  EXPECT_EQ(test.str(), ref.str());
+}
+
 INSTANTIATE_TEST_SUITE_P(KnightTest, KnightColorFixture,
                          ::testing::Values(Color::Black, Color::White));
