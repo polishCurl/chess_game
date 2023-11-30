@@ -34,16 +34,26 @@ cc_test(
 )
 
 cc_library(
+    name = "piece_interface",
+    srcs = [
+    ],
+    hdrs = [
+        "src/ipiece.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":move"],
+)
+
+cc_library(
     name = "piece",
     srcs = [
         "src/piece.cpp",
     ],
     hdrs = [
-        "src/ipiece.hpp",
         "src/piece.hpp",
     ],
     strip_include_prefix = "",
-    deps = [":move"],
+    deps = [":piece_interface"],
 )
 
 cc_library(
@@ -51,10 +61,12 @@ cc_library(
     testonly = True,
     hdrs = [
         "mock/piece_mock.hpp",
-        "src/ipiece.hpp",
     ],
     strip_include_prefix = "",
-    deps = ["@googletest//:gtest_main"],
+    deps = [
+        "piece_interface",
+        "@googletest//:gtest_main",
+    ],
 )
 
 cc_library(
