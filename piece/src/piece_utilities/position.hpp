@@ -8,14 +8,13 @@ namespace chess {
 
 namespace piece {
 
-constexpr int kChessBoardRows{8};
-constexpr int kChessBoardCols{8};
-
 class Position {
  public:
   Position() = delete;
-  Position(int row, int col);
-  Position(const std::string &coordinates);
+  Position(int row, int col, int chess_board_rows = 8,
+           int chess_board_cols = 8);
+  Position(const std::string &coordinates, int chess_board_rows = 8,
+           int chess_board_cols = 8);
   Position &operator=(const std::string &coordinates);
   bool operator==(const Position &other) const;
   bool operator!=(const Position &other) const;
@@ -26,6 +25,8 @@ class Position {
  private:
   int row_;
   int col_;
+  int chess_board_rows_;
+  int chess_board_cols_;
 
  private:
   void swap(Position &other);

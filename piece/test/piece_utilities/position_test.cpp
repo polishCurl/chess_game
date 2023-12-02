@@ -15,6 +15,12 @@ TEST(PositionTest, Constructor) {
   EXPECT_THROW((Position{-1, 1}), std::invalid_argument);
   EXPECT_THROW((Position{7, -3}), std::invalid_argument);
   EXPECT_THROW((Position{-10, -25}), std::invalid_argument);
+
+  EXPECT_THROW((Position{8, 0, 8, 8}), std::invalid_argument);
+  EXPECT_NO_THROW((Position{8, 0, 9, 8}));
+  EXPECT_THROW((Position{10, 10000, 11, 10000}), std::invalid_argument);
+  EXPECT_NO_THROW((Position{0, 0, 1, 1}));
+  EXPECT_THROW((Position{1, 1, 1, 1}), std::invalid_argument);
 }
 
 TEST(PositionTest, Equality) {
@@ -72,6 +78,9 @@ TEST(PositionTest, StringConstructor) {
   EXPECT_EQ((Position{"H1"}), (Position{7, 7}));
   EXPECT_EQ((Position{"H8"}), (Position{0, 7}));
   EXPECT_EQ((Position{"E5"}), (Position{3, 4}));
+
+  // EXPECT_EQ((Position{"P"}), (Position{0, 7}));
+  // EXPECT_EQ((Position{"E5"}), (Position{3, 4}));
 }
 
 TEST(PositionTest, StringAssignment) {
