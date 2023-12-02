@@ -1,5 +1,5 @@
-#ifndef CHESS_GAME_PIECE_SRC_PIECE_FACTORY_HPP_
-#define CHESS_GAME_PIECE_SRC_PIECE_FACTORY_HPP_
+#ifndef CHESS_PIECE_SRC_PIECE_FACTORY_HPP_
+#define CHESS_PIECE_SRC_PIECE_FACTORY_HPP_
 
 #include "src/piece_factory/ipiece_factory.hpp"
 
@@ -16,4 +16,4 @@ class PieceFactory : public IPieceFactory {
 }  // namespace piece
 }  // namespace chess
 
-#endif  // CHESS_GAME_PIECE_SRC_PIECE_FACTORY_HPP_
+#endif  // CHESS_PIECE_SRC_PIECE_FACTORY_HPP_

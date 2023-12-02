@@ -1,10 +1,9 @@
-#ifndef CHESS_GAME_PIECE_SRC_IPIECE_HPP_
-#define CHESS_GAME_PIECE_SRC_IPIECE_HPP_
+#ifndef CHESS_PIECE_SRC_IPIECE_HPP_
+#define CHESS_PIECE_SRC_IPIECE_HPP_
 
 #include <iostream>
 
-#include "src/piece_utilities/move.hpp"
-#include "src/piece_utilities/position.hpp"
+#include "common/src/move/move.hpp"
 
 namespace chess {
 
@@ -35,4 +34,4 @@ class IPiece {
 }  // namespace piece
 }  // namespace chess
 
-#endif  // CHESS_GAME_PIECE_SRC_IPIECE_HPP_
+#endif  // CHESS_PIECE_SRC_IPIECE_HPP_

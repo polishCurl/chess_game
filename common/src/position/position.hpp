@@ -1,5 +1,5 @@
-#ifndef CHESS_GAME_PIECE_SRC_PIECE_UTILITIES_HPP_
-#define CHESS_GAME_PIECE_SRC_PIECE_UTILITIES_HPP_
+#ifndef CHESS_COMMON_SRC_POSITION_HPP_
+#define CHESS_COMMON_SRC_POSITION_HPP_
 
 #include <cstddef>
 #include <string>
@@ -34,4 +34,4 @@ class Position {
 }  // namespace piece
 }  // namespace chess
 
-#endif  // CHESS_GAME_PIECE_SRC_PIECE_UTILITIES_HPP_
+#endif  // CHESS_COMMON_SRC_POSITION_HPP_

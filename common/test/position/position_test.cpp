@@ -1,4 +1,4 @@
-#include "src/piece_utilities/position.hpp"
+#include "src/position/position.hpp"
 
 #include "gtest/gtest.h"
 

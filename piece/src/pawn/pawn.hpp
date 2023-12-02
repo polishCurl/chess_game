@@ -1,5 +1,5 @@
-#ifndef CHESS_GAME_PIECE_SRC_PAWN_HPP_
-#define CHESS_GAME_PIECE_SRC_PAWN_HPP_
+#ifndef CHESS_PIECE_SRC_PAWN_HPP_
+#define CHESS_PIECE_SRC_PAWN_HPP_
 
 #include "src/piece.hpp"
 
@@ -22,4 +22,4 @@ class Pawn : public Piece {
 }  // namespace piece
 }  // namespace chess
 
-#endif  // CHESS_GAME_PIECE_SRC_PAWN_HPP_
+#endif  // CHESS_PIECE_SRC_PAWN_HPP_

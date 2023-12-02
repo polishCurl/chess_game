@@ -1,5 +1,5 @@
-#ifndef CHESS_GAME_PIECE_SRC_PIECE_HPP_
-#define CHESS_GAME_PIECE_SRC_PIECE_HPP_
+#ifndef CHESS_PIECE_SRC_PIECE_HPP_
+#define CHESS_PIECE_SRC_PIECE_HPP_
 
 #include "src/ipiece.hpp"
 
@@ -23,4 +23,4 @@ class Piece : public IPiece {
 }  // namespace piece
 }  // namespace chess
 
-#endif  // CHESS_GAME_PIECE_SRC_PIECE_HPP_
+#endif  // CHESS_PIECE_SRC_PIECE_HPP_

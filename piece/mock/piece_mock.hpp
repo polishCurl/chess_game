@@ -1,5 +1,5 @@
-#ifndef CHESS_GAME_PIECE_MOCK_PIECE_MOCK_HPP_
-#define CHESS_GAME_PIECE_MOCK_PIECE_MOCK_HPP_
+#ifndef CHESS_PIECE_MOCK_PIECE_MOCK_HPP_
+#define CHESS_PIECE_MOCK_PIECE_MOCK_HPP_
 
 #include "gmock/gmock.h"
 #include "src/ipiece.hpp"
@@ -22,4 +22,4 @@ class PieceMock : public IPiece {
 }  // namespace piece
 }  // namespace chess
 
-#endif  // CHESS_GAME_PIECE_MOCK_PIECE_MOCK_HPP_
+#endif  // CHESS_PIECE_MOCK_PIECE_MOCK_HPP_

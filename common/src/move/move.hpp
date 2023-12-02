@@ -1,10 +1,10 @@
-#ifndef CHESS_GAME_PIECE_SRC_PIECE_UTILITIES_MOVE_HPP_
-#define CHESS_GAME_PIECE_SRC_PIECE_UTILITIES_MOVE_HPP_
+#ifndef CHESS_COMMON_SRC_MOVE_HPP_
+#define CHESS_COMMON_SRC_MOVE_HPP_
 
 #include <cstddef>
 #include <iostream>
 
-#include "src/piece_utilities/position.hpp"
+#include "src/position/position.hpp"
 
 namespace chess {
 
@@ -42,4 +42,4 @@ struct Move {
 }  // namespace piece
 }  // namespace chess
 
-#endif  // CHESS_GAME_PIECE_SRC_PIECE_UTILITIES_MOVE_HPP_
+#endif  // CHESS_COMMON_SRC_MOVE_HPP_
