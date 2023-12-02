@@ -2,7 +2,7 @@
 
 namespace chess {
 
-namespace piece {
+namespace common {
 
 std::ostream &operator<<(std::ostream &out, Color color) {
   switch (color) {
@@ -15,5 +15,5 @@ std::ostream &operator<<(std::ostream &out, Color color) {
   }
 }
 
-}  // namespace piece
+}  // namespace common
 }  // namespace chess

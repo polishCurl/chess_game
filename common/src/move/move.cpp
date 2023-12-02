@@ -4,7 +4,7 @@
 
 namespace chess {
 
-namespace piece {
+namespace common {
 
 const Position kNoDistance{0, 0};
 
@@ -57,5 +57,5 @@ bool Move::isKnightMove(const Move &move) {
 
 Move Move::revert(const Move &move) { return {move.next_, move.curr_}; }
 
-}  // namespace piece
+}  // namespace common
 }  // namespace chess

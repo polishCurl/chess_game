@@ -5,6 +5,7 @@
 #include "src/queen/queen.hpp"
 
 using namespace chess::piece;
+using namespace chess::common;
 
 class PieceFactoryTest : public ::testing::TestWithParam<PieceType> {
  protected:

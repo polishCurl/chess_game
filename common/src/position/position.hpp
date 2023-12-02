@@ -6,7 +6,7 @@
 
 namespace chess {
 
-namespace piece {
+namespace common {
 
 constexpr int kChessBoardRows{8};
 constexpr int kChessBoardCols{8};
@@ -31,7 +31,7 @@ class Position {
   void swap(Position &other);
 };
 
-}  // namespace piece
+}  // namespace common
 }  // namespace chess
 
 #endif  // CHESS_COMMON_SRC_POSITION_HPP_

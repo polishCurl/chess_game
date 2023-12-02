@@ -9,9 +9,9 @@ namespace piece {
 
 class Knight : public Piece {
  public:
-  Knight(const Position& position, Color color);
-  bool canMove(const Position& next) const override;
-  bool move(const Position& next) override;
+  Knight(const chess::common::Position& position, chess::common::Color color);
+  bool canMove(const chess::common::Position& next) const override;
+  bool move(const chess::common::Position& next) override;
   const char* getName() const override;
   PieceType getType() const override;
 

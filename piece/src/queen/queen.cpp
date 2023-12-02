@@ -4,6 +4,8 @@ namespace chess {
 
 namespace piece {
 
+using namespace chess::common;
+
 Queen::Queen(const Position& position, Color color) : Piece{position, color} {}
 
 bool Queen::canMove(const Position& next) const {

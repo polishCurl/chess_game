@@ -10,9 +10,9 @@ namespace piece {
 class IPieceFactory {
  public:
   virtual ~IPieceFactory() = default;
-  virtual std::unique_ptr<IPiece> create(PieceType type,
-                                         const Position& position,
-                                         Color color) const = 0;
+  virtual std::unique_ptr<IPiece> create(
+      PieceType type, const chess::common::Position& position,
+      chess::common::Color color) const = 0;
 };
 
 }  // namespace piece

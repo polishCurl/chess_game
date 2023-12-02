@@ -6,6 +6,8 @@ namespace chess {
 
 namespace piece {
 
+using namespace chess::common;
+
 Piece::Piece(const Position& position, Color color)
     : position_{position}, color_{color}, has_been_moved_{false} {}
 

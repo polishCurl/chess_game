@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 
 using namespace chess::piece;
+using namespace chess::common;
 
 TEST(KnightTest, Constructor) {
   EXPECT_NO_THROW((Knight{Position{0, 0}, Color::Black}));

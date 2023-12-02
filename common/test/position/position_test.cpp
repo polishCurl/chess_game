@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-using namespace chess::piece;
+using namespace chess::common;
 
 TEST(PositionTest, Constructor) {
   EXPECT_NO_THROW((Position{0, 0}));

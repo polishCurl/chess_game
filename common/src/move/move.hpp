@@ -8,7 +8,7 @@
 
 namespace chess {
 
-namespace piece {
+namespace common {
 
 // TODO: Move Color to separate file
 enum class Color { Black, White };
@@ -39,7 +39,7 @@ struct Move {
   Position next_;
 };
 
-}  // namespace piece
+}  // namespace common
 }  // namespace chess
 
 #endif  // CHESS_COMMON_SRC_MOVE_HPP_

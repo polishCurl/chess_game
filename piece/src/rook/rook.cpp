@@ -4,6 +4,8 @@ namespace chess {
 
 namespace piece {
 
+using namespace chess::common;
+
 Rook::Rook(const Position& position, Color color) : Piece{position, color} {}
 
 bool Rook::canMove(const Position& next) const {

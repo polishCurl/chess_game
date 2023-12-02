@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 
 using namespace chess::piece;
+using namespace chess::common;
 
 TEST(PawnTest, Constructor) {
   EXPECT_NO_THROW((Pawn{Position{0, 0}, Color::Black}));

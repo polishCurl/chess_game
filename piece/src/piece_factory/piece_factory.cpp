@@ -11,6 +11,8 @@ namespace chess {
 
 namespace piece {
 
+using namespace chess::common;
+
 std::unique_ptr<IPiece> PieceFactory::create(PieceType type,
                                              const Position& position,
                                              Color color) const {

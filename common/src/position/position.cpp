@@ -7,7 +7,7 @@
 
 namespace chess {
 
-namespace piece {
+namespace common {
 
 Position::Position(int row, int col) : row_{row}, col_{col} {
   if ((col_ < 0) || (row_ < 0) || (col_ >= kChessBoardCols) ||
@@ -56,5 +56,5 @@ void Position::swap(Position &other) {
   std::swap(this->col_, other.col_);
 }
 
-}  // namespace piece
+}  // namespace common
 }  // namespace chess

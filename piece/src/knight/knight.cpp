@@ -4,6 +4,8 @@ namespace chess {
 
 namespace piece {
 
+using namespace chess::common;
+
 Knight::Knight(const Position& position, Color color)
     : Piece{position, color} {}
 

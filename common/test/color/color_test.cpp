@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-using namespace chess::piece;
+using namespace chess::common;
 
 TEST(ColorTest, StreamInsertion) {
   EXPECT_EQ((std::stringstream{} << Color::White).str(), "white");

@@ -20,12 +20,12 @@ class IPiece {
   IPiece& operator=(IPiece&&) = default;
 
   virtual ~IPiece() = default;
-  virtual Position getPosition() const = 0;
-  virtual bool canMove(const Position& next) const = 0;
-  virtual bool move(const Position& next) = 0;
+  virtual chess::common::Position getPosition() const = 0;
+  virtual bool canMove(const chess::common::Position& next) const = 0;
+  virtual bool move(const chess::common::Position& next) = 0;
   virtual bool hasBeenMoved() const = 0;
   virtual const char* getName() const = 0;
-  virtual Color getColor() const = 0;
+  virtual chess::common::Color getColor() const = 0;
   virtual PieceType getType() const = 0;
 
   friend std::ostream& operator<<(std::ostream& out, const IPiece& piece);

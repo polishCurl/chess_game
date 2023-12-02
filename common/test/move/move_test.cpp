@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-using namespace chess::piece;
+using namespace chess::common;
 
 TEST(MoveTest, IsDiagonal) {
   EXPECT_FALSE(Move::isDiagonal({Position{1, 1}, Position{1, 1}}));

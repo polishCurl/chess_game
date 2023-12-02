@@ -4,6 +4,8 @@ namespace chess {
 
 namespace piece {
 
+using namespace chess::common;
+
 Bishop::Bishop(const Position& position, Color color)
     : Piece{position, color} {}
 
