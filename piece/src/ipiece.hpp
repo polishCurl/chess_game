@@ -28,13 +28,9 @@ class IPiece {
   virtual const char* getName() const = 0;
   virtual Color getColor() const = 0;
   virtual PieceType getType() const = 0;
-};
 
-inline std::ostream& operator<<(std::ostream& out, const IPiece& piece) {
-  out << piece.getName() << " (" << piece.getColor() << ") on "
-      << std::string(piece.getPosition());
-  return out;
-}
+  friend std::ostream& operator<<(std::ostream& out, const IPiece& piece);
+};
 
 }  // namespace piece
 }  // namespace chess

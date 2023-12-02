@@ -15,5 +15,11 @@ bool Piece::hasBeenMoved() const { return has_been_moved_; }
 
 Color Piece::getColor() const { return color_; }
 
+std::ostream& operator<<(std::ostream& out, const IPiece& piece) {
+  out << piece.getName() << " (" << piece.getColor() << ") on "
+      << std::string(piece.getPosition());
+  return out;
+}
+
 }  // namespace piece
 }  // namespace chess
