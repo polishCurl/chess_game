@@ -23,12 +23,11 @@ class Position {
 
   friend struct Move;
 
- private:
+ protected:
+  void swap(Position &other);
+
   int row_;
   int col_;
-
- private:
-  void swap(Position &other);
 };
 
 }  // namespace common
