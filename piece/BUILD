@@ -12,7 +12,16 @@ cc_library(
     srcs = ["src/piece_utilities/move.cpp"],
     hdrs = ["src/piece_utilities/move.hpp"],
     strip_include_prefix = "",
-    deps = [":position"],
+    deps = [
+        ":color",
+        ":position",
+    ],
+)
+
+cc_library(
+    name = "color",
+    hdrs = ["src/piece_utilities/color.hpp"],
+    strip_include_prefix = "",
 )
 
 cc_test(
@@ -29,6 +38,15 @@ cc_test(
     srcs = ["test/piece_utilities/move_test.cpp"],
     deps = [
         ":move",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "color_test",
+    srcs = ["test/piece_utilities/color_test.cpp"],
+    deps = [
+        ":color",
         "@googletest//:gtest_main",
     ],
 )
