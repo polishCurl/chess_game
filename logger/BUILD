@@ -28,3 +28,34 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "time_interface",
+    srcs = [
+    ],
+    hdrs = [
+        "src/time/itime.hpp",
+    ],
+    strip_include_prefix = "",
+)
+
+cc_library(
+    name = "time",
+    srcs = [
+        "src/time/time.cpp",
+    ],
+    hdrs = [
+        "src/time/time.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [":time_interface"],
+)
+
+cc_test(
+    name = "time_test",
+    srcs = ["test/time/time_test.cpp"],
+    deps = [
+        ":time",
+        "@googletest//:gtest_main",
+    ],
+)
