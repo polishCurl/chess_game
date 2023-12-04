@@ -4,25 +4,12 @@
 #include <cstddef>
 #include <iostream>
 
+#include "src/color/color.hpp"
 #include "src/position/position.hpp"
 
 namespace chess {
 
 namespace common {
-
-// TODO: Move Color to separate file
-enum class Color { Black, White };
-
-inline std::ostream &operator<<(std::ostream &out, Color color) {
-  switch (color) {
-    case Color::Black:
-      return out << "black";
-    case Color::White:
-      return out << "white";
-    default:
-      return out << "Invalid color!";
-  }
-}
 
 struct Move {
   static bool isDiagonal(const Move &move);
