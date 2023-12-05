@@ -3,7 +3,10 @@ cc_library(
     srcs = ["src/position/position.cpp"],
     hdrs = ["src/position/position.hpp"],
     strip_include_prefix = "",
-    visibility = ["//piece:__subpackages__"],
+    visibility = [
+        "//board:__subpackages__",
+        "//piece:__subpackages__",
+    ],
 )
 
 cc_library(
@@ -11,7 +14,10 @@ cc_library(
     srcs = ["src/color/color.cpp"],
     hdrs = ["src/color/color.hpp"],
     strip_include_prefix = "",
-    visibility = ["//piece:__subpackages__"],
+    visibility = [
+        "//board:__subpackages__",
+        "//piece:__subpackages__",
+    ],
 )
 
 cc_library(
@@ -19,7 +25,10 @@ cc_library(
     srcs = ["src/move/move.cpp"],
     hdrs = ["src/move/move.hpp"],
     strip_include_prefix = "",
-    visibility = ["//piece:__subpackages__"],
+    visibility = [
+        "//board:__subpackages__",
+        "//piece:__subpackages__",
+    ],
     deps = [
         ":color",
         ":position",

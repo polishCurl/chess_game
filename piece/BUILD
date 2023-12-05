@@ -6,6 +6,9 @@ cc_library(
         "src/ipiece.hpp",
     ],
     strip_include_prefix = "",
+    visibility = [
+        "//board:__subpackages__",
+    ],
     deps = ["//common:move"],
 )
 
@@ -170,6 +173,9 @@ cc_library(
         "src/piece_factory/piece_factory.hpp",
     ],
     strip_include_prefix = "",
+    visibility = [
+        "//board:__subpackages__",
+    ],
     deps = [
         ":bishop",
         ":king",
