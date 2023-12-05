@@ -2,6 +2,7 @@
 #define CHESS_COMMON_SRC_POSITION_HPP_
 
 #include <cstddef>
+#include <functional>
 #include <string>
 
 namespace chess {
@@ -26,12 +27,18 @@ class Position {
 
  protected:
   void swap(Position &other);
-
-  int row_;
-  int col_;
 };
 
 }  // namespace common
 }  // namespace chess
+
+template <>
+struct std::hash<chess::common::Position> {
+  size_t operator()(const chess::common::Position &position) const {
+    return ((std::hash<int>()(position.row_) ^
+             (std::hash<int>()(position.col_) << 1)) >>
+            1);
+  }
+};
 
 #endif  // CHESS_COMMON_SRC_POSITION_HPP_
