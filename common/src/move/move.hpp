@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <iostream>
+#include <vector>
 
 #include "src/color/color.hpp"
 #include "src/position/position.hpp"
@@ -19,8 +20,8 @@ struct Move {
   static bool isByOne(const Move &move);
   static bool isPawnStartingMove(const Move &move, Color color);
   static bool isKnightMove(const Move &move);
-
   static Move revert(const Move &move);
+  static std::vector<Position> getIntermediatePositions(const Move &move);
 
   Position curr_;
   Position next_;

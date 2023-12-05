@@ -1,5 +1,6 @@
 #include "src/move/move.hpp"
 
+#include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
 using namespace chess::common;
@@ -176,4 +177,41 @@ TEST(MoveTest, Revert) {
   const auto reverted_move{Move::revert(original_move)};
   EXPECT_EQ(original_move.curr_, reverted_move.next_);
   EXPECT_EQ(original_move.next_, reverted_move.curr_);
+}
+
+TEST(MoveTest, GetIntermediatePositions) {
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"D4"}}).size(),
+      0);
+
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"D5"}}),
+              ::testing::ElementsAreArray({Position{"D5"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"D3"}}),
+              ::testing::ElementsAreArray({Position{"D3"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"E4"}}),
+              ::testing::ElementsAreArray({Position{"E4"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"C4"}}),
+              ::testing::ElementsAreArray({Position{"C4"}}));
+
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"C5"}}),
+              ::testing::ElementsAreArray({Position{"C5"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"E5"}}),
+              ::testing::ElementsAreArray({Position{"E5"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"C3"}}),
+              ::testing::ElementsAreArray({Position{"C3"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"E3"}}),
+              ::testing::ElementsAreArray({Position{"E3"}}));
+
+  EXPECT_THAT(
+      Move::getIntermediatePositions({Position{"A1"}, Position{"H8"}}),
+      ::testing::ElementsAreArray(
+          {Position{"B2"}, Position{"C3"}, Position{"D4"}, Position{"E5"},
+           Position{"F6"}, Position{"G7"}, Position{"H8"}}));
+
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"A1"}, Position{"A5"}}),
+              ::testing::ElementsAreArray({Position{"A2"}, Position{"A3"},
+                                           Position{"A4"}, Position{"A5"}}));
+
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"E5"}, Position{"C5"}}),
+              ::testing::ElementsAreArray({Position{"D5"}, Position{"C5"}}));
 }
