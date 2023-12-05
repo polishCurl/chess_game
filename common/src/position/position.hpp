@@ -21,7 +21,8 @@ class Position {
   bool operator!=(const Position &other) const;
   operator std::string() const;
 
-  friend struct Move;
+  int row_;
+  int col_;
 
  protected:
   void swap(Position &other);
