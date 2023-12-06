@@ -180,38 +180,63 @@ TEST(MoveTest, Revert) {
 }
 
 TEST(MoveTest, GetIntermediatePositions) {
+  // Move by 0 positions
   EXPECT_EQ(
       Move::getIntermediatePositions({Position{"D4"}, Position{"D4"}}).size(),
       0);
 
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"D5"}}),
-              ::testing::ElementsAreArray({Position{"D5"}}));
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"D3"}}),
-              ::testing::ElementsAreArray({Position{"D3"}}));
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"E4"}}),
-              ::testing::ElementsAreArray({Position{"E4"}}));
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"C4"}}),
-              ::testing::ElementsAreArray({Position{"C4"}}));
+  // Move by 1 position in all directions
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"D5"}}).size(),
+      0);
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"D3"}}).size(),
+      0);
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"E4"}}).size(),
+      0);
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"C4"}}).size(),
+      0);
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"C5"}}).size(),
+      0);
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"E5"}}).size(),
+      0);
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"C3"}}).size(),
+      0);
+  EXPECT_EQ(
+      Move::getIntermediatePositions({Position{"D4"}, Position{"E3"}}).size(),
+      0);
 
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"C5"}}),
+  // Move by 2 positions in all directions
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"D6"}}),
+              ::testing::ElementsAreArray({Position{"D5"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"D2"}}),
+              ::testing::ElementsAreArray({Position{"D3"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"F4"}}),
+              ::testing::ElementsAreArray({Position{"E4"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"B4"}}),
+              ::testing::ElementsAreArray({Position{"C4"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"B6"}}),
               ::testing::ElementsAreArray({Position{"C5"}}));
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"E5"}}),
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"F6"}}),
               ::testing::ElementsAreArray({Position{"E5"}}));
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"C3"}}),
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"B2"}}),
               ::testing::ElementsAreArray({Position{"C3"}}));
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"E3"}}),
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"D4"}, Position{"F2"}}),
               ::testing::ElementsAreArray({Position{"E3"}}));
 
-  EXPECT_THAT(
-      Move::getIntermediatePositions({Position{"A1"}, Position{"H8"}}),
-      ::testing::ElementsAreArray(
-          {Position{"B2"}, Position{"C3"}, Position{"D4"}, Position{"E5"},
-           Position{"F6"}, Position{"G7"}, Position{"H8"}}));
-
+  // Move by 3+ positions in all directions
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"A1"}, Position{"H8"}}),
+              ::testing::ElementsAreArray({Position{"B2"}, Position{"C3"},
+                                           Position{"D4"}, Position{"E5"},
+                                           Position{"F6"}, Position{"G7"}}));
   EXPECT_THAT(Move::getIntermediatePositions({Position{"A1"}, Position{"A5"}}),
-              ::testing::ElementsAreArray({Position{"A2"}, Position{"A3"},
-                                           Position{"A4"}, Position{"A5"}}));
-
-  EXPECT_THAT(Move::getIntermediatePositions({Position{"E5"}, Position{"C5"}}),
+              ::testing::ElementsAreArray(
+                  {Position{"A2"}, Position{"A3"}, Position{"A4"}}));
+  EXPECT_THAT(Move::getIntermediatePositions({Position{"E5"}, Position{"B5"}}),
               ::testing::ElementsAreArray({Position{"D5"}, Position{"C5"}}));
 }

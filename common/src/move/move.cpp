@@ -77,6 +77,8 @@ std::vector<Position> Move::getIntermediatePositions(const Move &move) {
   const auto row_step = getIncrementValue(row_diff);
   const auto col_step = getIncrementValue(col_diff);
 
+  for (int i = 1; i <= std::max(std::abs(row_diff), std::abs(col_diff)) - 1;
+       i++) {
     intermediate_positions.push_back({move.curr_pos_.row_ + (i * row_step),
                                       move.curr_pos_.col_ + (i * col_step)});
   }
