@@ -30,7 +30,7 @@ class IChessboard {
 
   virtual int getPieceCount(chess::common::Color color,
                             chess::piece::PieceType type) const = 0;
-  virtual MoveResult move(chess::common::Color color,
+  virtual MoveResult move(chess::common::Color player_color,
                           const chess::common::Move& move) = 0;
 
   // TODO: Implement detection of check, checkmate and stalemate

@@ -57,23 +57,55 @@ Chessboard::Chessboard() {
 
 int Chessboard::getPieceCount(Color color, PieceType type) const { return 0; }
 
-MoveResult Chessboard::move(Color color, const Move& move) {
-  auto& piece = getPiece(move.curr_);
+MoveResult Chessboard::move(Color player_color, const Move& move) {
+  auto& piece = getPiece(move.curr_pos_);
+  auto& target_piece = getPiece(move.next_pos_);
+
   if (!piece) {
     return MoveResult::kInvalid;
   }
 
-  if (piece->getColor() != color) {
+  if (piece->getColor() != player_color) {
     return MoveResult::kInvalid;
   }
 
-  // TODO: Continue move implementation
+  if (!piece->canMove(move.next_pos_)) {
+    return MoveResult::kInvalid;
+  }
 
-  return MoveResult::kNoCapture;
+  if ((piece->getType() != PieceType::kKnight) && detectColision(move)) {
+    return MoveResult::kInvalid;
+  }
+
+  if (!target_piece) {
+    piece->move(move.next_pos_);
+    target_piece = std::move(piece);
+    return MoveResult::kNoCapture;
+  }
+
+  if (target_piece->getColor() == player_color) {
+    return MoveResult::kInvalid;
+  } else {
+    target_piece.reset(nullptr);
+    piece->move(move.next_pos_);
+    target_piece = std::move(piece);
+    return MoveResult::kCapture;
+  }
+
+  return MoveResult::kInvalid;
 }
 
 std::unique_ptr<IPiece>& Chessboard::getPiece(const Position& position) {
   return board_[position.row_][position.col_];
+}
+
+bool Chessboard::detectColision(const chess::common::Move& move) {
+  for (const auto& position : Move::getIntermediatePositions(move)) {
+    if (getPiece(position)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 }  // namespace board

@@ -24,12 +24,14 @@ class Chessboard : public IChessboard {
   Chessboard();
   int getPieceCount(chess::common::Color color,
                     chess::piece::PieceType type) const override;
-  MoveResult move(chess::common::Color color,
+  MoveResult move(chess::common::Color player_color,
                   const chess::common::Move& move) override;
 
  protected:
   std::unique_ptr<chess::piece::IPiece>& getPiece(
       const chess::common::Position& position);
+
+  bool detectColision(const chess::common::Move& move);
 
   Board board_;
   static const PieceMap kPieceMap;

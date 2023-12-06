@@ -26,3 +26,12 @@ cc_library(
         "//piece:piece_factory",
     ],
 )
+
+cc_test(
+    name = "chessboard_test",
+    srcs = ["test/chessboard_test.cpp"],
+    deps = [
+        ":chessboard",
+        "@googletest//:gtest_main",
+    ],
+)
