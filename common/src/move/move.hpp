@@ -23,8 +23,8 @@ struct Move {
   static Move revert(const Move &move);
   static std::vector<Position> getIntermediatePositions(const Move &move);
 
-  Position curr_;
-  Position next_;
+  Position curr_pos_;
+  Position next_pos_;
 };
 
 }  // namespace common

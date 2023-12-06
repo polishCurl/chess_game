@@ -175,8 +175,8 @@ TEST(MoveTest, IsKnightMove) {
 TEST(MoveTest, Revert) {
   const auto original_move{Move{Position{"D4"}, Position{"C2"}}};
   const auto reverted_move{Move::revert(original_move)};
-  EXPECT_EQ(original_move.curr_, reverted_move.next_);
-  EXPECT_EQ(original_move.next_, reverted_move.curr_);
+  EXPECT_EQ(original_move.curr_pos_, reverted_move.next_pos_);
+  EXPECT_EQ(original_move.next_pos_, reverted_move.curr_pos_);
 }
 
 TEST(MoveTest, GetIntermediatePositions) {
