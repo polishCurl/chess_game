@@ -1,7 +1,7 @@
 #ifndef CHESS_PIECE_SRC_ROOK_HPP_
 #define CHESS_PIECE_SRC_ROOK_HPP_
 
-#include "src/piece.hpp"
+#include "src/piece/piece.hpp"
 
 namespace chess {
 

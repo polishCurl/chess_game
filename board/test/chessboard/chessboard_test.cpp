@@ -1,4 +1,4 @@
-#include "board/src/chessboard.hpp"
+#include "src/chessboard/chessboard.hpp"
 
 #include "gtest/gtest.h"
 

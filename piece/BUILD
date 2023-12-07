@@ -15,10 +15,10 @@ cc_library(
 cc_library(
     name = "piece",
     srcs = [
-        "src/piece.cpp",
+        "src/piece/piece.cpp",
     ],
     hdrs = [
-        "src/piece.hpp",
+        "src/piece/piece.hpp",
     ],
     strip_include_prefix = "",
     deps = [":piece_interface"],

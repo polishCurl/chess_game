@@ -15,10 +15,10 @@ cc_library(
 cc_library(
     name = "chessboard",
     srcs = [
-        "src/chessboard.cpp",
+        "src/chessboard/chessboard.cpp",
     ],
     hdrs = [
-        "src/chessboard.hpp",
+        "src/chessboard/chessboard.hpp",
     ],
     strip_include_prefix = "",
     deps = [
@@ -29,7 +29,7 @@ cc_library(
 
 cc_test(
     name = "chessboard_test",
-    srcs = ["test/chessboard_test.cpp"],
+    srcs = ["test/chessboard/chessboard_test.cpp"],
     deps = [
         ":chessboard",
         "@googletest//:gtest_main",
