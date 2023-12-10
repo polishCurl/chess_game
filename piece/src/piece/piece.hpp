@@ -13,6 +13,7 @@ class Piece : public IPiece {
   chess::common::Position getPosition() const override;
   bool hasBeenMoved() const override;
   chess::common::Color getColor() const override;
+  bool canJump() const override;
 
  protected:
   chess::common::Position position_;

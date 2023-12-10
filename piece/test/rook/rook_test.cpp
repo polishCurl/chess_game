@@ -106,5 +106,10 @@ TEST_P(RookColorFixture, StreamInsertion) {
   EXPECT_EQ(test.str(), ref.str());
 }
 
+TEST_P(RookColorFixture, CanJump) {
+  Rook rook{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(rook.canJump());
+}
+
 INSTANTIATE_TEST_SUITE_P(RookTest, RookColorFixture,
                          ::testing::Values(Color::Black, Color::White));

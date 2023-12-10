@@ -106,5 +106,10 @@ TEST_P(QueenColorFixture, StreamInsertion) {
   EXPECT_EQ(test.str(), ref.str());
 }
 
+TEST_P(QueenColorFixture, CanJump) {
+  Queen queen{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(queen.canJump());
+}
+
 INSTANTIATE_TEST_SUITE_P(QueenTest, QueenColorFixture,
                          ::testing::Values(Color::Black, Color::White));

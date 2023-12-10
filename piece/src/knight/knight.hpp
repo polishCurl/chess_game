@@ -14,6 +14,7 @@ class Knight : public Piece {
   bool move(const chess::common::Position& next) override;
   const char* getName() const override;
   PieceType getType() const override;
+  bool canJump() const override;
 
  private:
   static constexpr char kName[]{"Knight"};

@@ -99,6 +99,11 @@ TEST_P(KnightColorFixture, HasBeenMoved) {
   EXPECT_TRUE(knight.hasBeenMoved());
 }
 
+TEST_P(KnightColorFixture, CanJump) {
+  Knight knight{Position{"B6"}, GetParam()};
+  EXPECT_TRUE(knight.canJump());
+}
+
 TEST_P(KnightColorFixture, StreamInsertion) {
   Knight knight{Position{"B6"}, GetParam()};
   std::stringstream test;

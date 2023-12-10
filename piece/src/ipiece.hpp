@@ -27,6 +27,7 @@ class IPiece {
   virtual const char* getName() const = 0;
   virtual chess::common::Color getColor() const = 0;
   virtual PieceType getType() const = 0;
+  virtual bool canJump() const = 0;
 
   friend std::ostream& operator<<(std::ostream& out, const IPiece& piece);
 };

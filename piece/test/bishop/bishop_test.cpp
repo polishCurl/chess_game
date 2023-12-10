@@ -106,5 +106,10 @@ TEST_P(BishopColorFixture, StreamInsertion) {
   EXPECT_EQ(test.str(), ref.str());
 }
 
+TEST_P(BishopColorFixture, CanJump) {
+  Bishop bishop{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(bishop.canJump());
+}
+
 INSTANTIATE_TEST_SUITE_P(BishopTest, BishopColorFixture,
                          ::testing::Values(Color::Black, Color::White));

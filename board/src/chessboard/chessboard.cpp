@@ -92,7 +92,7 @@ bool Chessboard::movePiece(Color player_color, const Move& move) {
 
   if (!piece || (piece->getColor() != player_color) ||
       !piece->canMove(move.next_pos_) ||
-      ((piece->getType() != PieceType::kKnight) && detectColision(move)) ||
+      (!piece->canJump() && detectColision(move)) ||
       (target_piece && (target_piece->getColor() == player_color))) {
     return false;
   }

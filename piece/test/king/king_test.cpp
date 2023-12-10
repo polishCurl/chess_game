@@ -89,6 +89,11 @@ TEST_P(KingColorFixture, HasBeenMoved) {
   EXPECT_TRUE(king.hasBeenMoved());
 }
 
+TEST_P(KingColorFixture, CanJump) {
+  King king{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(king.canJump());
+}
+
 TEST_P(KingColorFixture, StreamInsertion) {
   King king{Position{"B6"}, GetParam()};
   std::stringstream test;

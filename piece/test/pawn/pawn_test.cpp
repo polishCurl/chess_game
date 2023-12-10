@@ -116,6 +116,11 @@ TEST_P(PawnColorFixture, Move) {
 }
 */
 
+TEST_P(PawnColorFixture, CanJump) {
+  Pawn pawn{Position{"B6"}, GetParam()};
+  EXPECT_FALSE(pawn.canJump());
+}
+
 TEST_P(PawnColorFixture, StreamInsertion) {
   Pawn pawn{Position{"B6"}, GetParam()};
   std::stringstream test;

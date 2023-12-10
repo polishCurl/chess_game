@@ -28,5 +28,7 @@ const char* Knight::getName() const { return kName; };
 
 PieceType Knight::getType() const { return PieceType::kKnight; }
 
+bool Knight::canJump() const { return true; };
+
 }  // namespace piece
 }  // namespace chess
