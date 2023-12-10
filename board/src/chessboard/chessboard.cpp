@@ -46,57 +46,60 @@ const PieceMap Chessboard::kPieceMap{
     {Position{"H7"}, {PieceType::kPawn, Color::Black}},
 };
 
-Chessboard::Chessboard() {
-  PieceFactory piece_factory;
+void Chessboard::reset() {
+  for (auto& row : board_) {
+    for (auto& slot : row) {
+      slot.reset(nullptr);
+    }
+  }
 
   for (const auto& el : kPieceMap) {
-    getPiece(el.first) =
-        piece_factory.create(el.second.first, el.first, el.second.second);
+    static_cast<void>(addPiece(el.second.first, el.second.second, el.first));
   }
 }
 
-int Chessboard::getPieceCount(Color color, PieceType type) const { return 0; }
+const chess::piece::IPiece* Chessboard::getPiece(
+    const chess::common::Position& position) {
+  return getPieceInternal(position).get();
+}
 
-MoveResult Chessboard::move(Color player_color, const Move& move) {
-  auto& piece = getPiece(move.curr_pos_);
-  auto& target_piece = getPiece(move.next_pos_);
+bool Chessboard::addPiece(chess::piece::PieceType type,
+                          chess::common::Color color,
+                          const chess::common::Position& position) {
+  auto& piece = getPieceInternal(position);
+  if (piece) {
+    return false;
+  }
+
+  piece = PieceFactory{}.create(type, position, color);
+  return true;
+}
+
+bool Chessboard::removePiece(const chess::common::Position& position) {
+  auto& piece = getPieceInternal(position);
 
   if (!piece) {
-    return MoveResult::kInvalid;
+    return false;
   }
 
-  if (piece->getColor() != player_color) {
-    return MoveResult::kInvalid;
-  }
-
-  if (!piece->canMove(move.next_pos_)) {
-    return MoveResult::kInvalid;
-  }
-
-  if ((piece->getType() != PieceType::kKnight) && detectColision(move)) {
-    return MoveResult::kInvalid;
-  }
-
-  if (!target_piece) {
-    piece->move(move.next_pos_);
-    target_piece = std::move(piece);
-    return MoveResult::kNoCapture;
-  }
-
-  if (target_piece->getColor() == player_color) {
-    return MoveResult::kInvalid;
-  } else {
-    target_piece.reset(nullptr);
-    piece->move(move.next_pos_);
-    target_piece = std::move(piece);
-    return MoveResult::kCapture;
-  }
-
-  return MoveResult::kInvalid;
+  piece.reset(nullptr);
+  return true;
 }
 
-std::unique_ptr<IPiece>& Chessboard::getPiece(const Position& position) {
-  return board_[position.row_][position.col_];
+bool Chessboard::movePiece(Color player_color, const Move& move) {
+  auto& piece = getPieceInternal(move.curr_pos_);
+  auto& target_piece = getPieceInternal(move.next_pos_);
+
+  if (!piece || (piece->getColor() != player_color) ||
+      !piece->canMove(move.next_pos_) ||
+      ((piece->getType() != PieceType::kKnight) && detectColision(move)) ||
+      (target_piece && (target_piece->getColor() == player_color))) {
+    return false;
+  }
+
+  piece->move(move.next_pos_);
+  target_piece = std::move(piece);
+  return true;
 }
 
 bool Chessboard::detectColision(const chess::common::Move& move) {
@@ -106,6 +109,11 @@ bool Chessboard::detectColision(const chess::common::Move& move) {
     }
   }
   return false;
+}
+
+std::unique_ptr<chess::piece::IPiece>& Chessboard::getPieceInternal(
+    const chess::common::Position& position) {
+  return board_[position.row_][position.col_];
 }
 
 }  // namespace board

@@ -9,15 +9,6 @@ namespace chess {
 
 namespace board {
 
-enum class MoveResult {
-  kInvalid,
-  kNoCapture,
-  kCapture,
-  kCastling,
-  kEnPassant,
-  kPromotion,
-};
-
 class IChessboard {
  public:
   IChessboard() = default;
@@ -28,10 +19,15 @@ class IChessboard {
 
   virtual ~IChessboard() = default;
 
-  virtual int getPieceCount(chess::common::Color color,
-                            chess::piece::PieceType type) const = 0;
-  virtual MoveResult move(chess::common::Color player_color,
-                          const chess::common::Move& move) = 0;
+  virtual void reset() = 0;
+  virtual const chess::piece::IPiece* getPiece(
+      const chess::common::Position& position) = 0;
+  virtual bool addPiece(chess::piece::PieceType type,
+                        chess::common::Color color,
+                        const chess::common::Position& position) = 0;
+  virtual bool removePiece(const chess::common::Position& position) = 0;
+  virtual bool movePiece(chess::common::Color player_color,
+                         const chess::common::Move& move) = 0;
 
   // TODO: Implement detection of check, checkmate and stalemate
   // virtual bool isKingInCheck(Color color) const;
