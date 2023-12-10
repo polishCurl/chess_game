@@ -35,3 +35,16 @@ cc_test(
         "@googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "chessboard_mock",
+    testonly = True,
+    hdrs = [
+        "mock/chessboard_mock.hpp",
+    ],
+    strip_include_prefix = "",
+    deps = [
+        "chessboard_interface",
+        "@googletest//:gtest_main",
+    ],
+)
