@@ -7,6 +7,11 @@ namespace chess {
 
 namespace common {
 
+/**
+ * \brief Represents a chess color
+ *
+ * The color is an attribute of a chess player or a chess piece.
+ */
 enum class Color { Black, White };
 
 std::ostream &operator<<(std::ostream &out, Color color);
