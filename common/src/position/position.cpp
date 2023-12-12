@@ -14,7 +14,7 @@ Position::Position(int row, int col) : row_{row}, col_{col} {
       (row_ >= kChessBoardRows)) {
     std::stringstream error_msg;
     error_msg << "Invalid position! (" << row_ << ',' << col_ << ")";
-    throw std::invalid_argument(error_msg.str());
+    throw std::out_of_range(error_msg.str());
   }
 }
 

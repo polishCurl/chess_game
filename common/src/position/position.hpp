@@ -24,13 +24,17 @@ class Position {
    *
    * \param[in] row Position row.
    * \param[in] col Position column.
+   *
+   * \exception std::out_of_range Row and/or column is outside valid range.
    */
   Position(int row, int col);
 
   /**
    * \brief Construct a new position from string representation.
    *
-   * \param[in] coordinates Position string representation.
+   * \param[in] coordinates String representation of Position.
+   *
+   * \exception std::invalid_argument Invalid string representation.
    */
   Position(const std::string &coordinates);
 
@@ -39,6 +43,8 @@ class Position {
    *
    * \param[in] coordinates String representation of position to assign.
    *
+   * \exception std::invalid_argument Invalid string representation.
+   *
    * \return Reference to the updated position.
    */
   Position &operator=(const std::string &coordinates);
@@ -46,7 +52,7 @@ class Position {
   /**
    * \brief Check if two positions are equal.
    *
-   * \param[in] Position to compare against.
+   * \param[in] other Position to compare against.
    *
    * \return True if positions are equal, false otherwise.
    */
@@ -55,7 +61,7 @@ class Position {
   /**
    * \brief Check if two positions are not equal.
    *
-   * \param[in] Position to compare against.
+   * \param[in] other Position to compare against.
    *
    * \return True if positions are different, false otherwise.
    */
@@ -64,7 +70,7 @@ class Position {
   /**
    * \brief Convert position to string representation (e.g. E4)
    *
-   * \return String representing the chess position.
+   * \return String representation of the chess position.
    */
   operator std::string() const;
 
@@ -72,11 +78,6 @@ class Position {
   int col_; /**< Chessboard column */
 
  protected:
-  /**
-   * \brief Swap the position value with another one.
-   *
-   * \param[in] Position to swap with against.
-   */
   void swap(Position &other);
 };
 

@@ -29,6 +29,7 @@ struct Move {
    * \brief Check if the given move is forward.
    *
    * \param[in] move Move to check.
+   * \param[in] color Color of the piece being moved.
    *
    * \return True if move is forward, false otherwise.
    */
@@ -38,6 +39,7 @@ struct Move {
    * \brief Check if the given move is backward.
    *
    * \param[in] move Move to check.
+   * \param[in] color Color of the piece being moved.
    *
    * \return True if move is backward, false otherwise.
    */
@@ -57,7 +59,7 @@ struct Move {
    *
    * \param[in] move Move to check.
    *
-   * \return True if move is has a distance of one, false otherwise
+   * \return True if move has a distance of one, false otherwise
    */
   static bool isByOne(const Move &move);
 

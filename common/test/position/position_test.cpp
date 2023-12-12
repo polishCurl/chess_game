@@ -9,12 +9,12 @@ TEST(PositionTest, Constructor) {
   EXPECT_NO_THROW((Position{7, 7}));
   EXPECT_NO_THROW((Position{5, 2}));
 
-  EXPECT_THROW((Position{8, 0}), std::invalid_argument);
-  EXPECT_THROW((Position{0, 8}), std::invalid_argument);
-  EXPECT_THROW((Position{8, 8}), std::invalid_argument);
-  EXPECT_THROW((Position{-1, 1}), std::invalid_argument);
-  EXPECT_THROW((Position{7, -3}), std::invalid_argument);
-  EXPECT_THROW((Position{-10, -25}), std::invalid_argument);
+  EXPECT_THROW((Position{8, 0}), std::out_of_range);
+  EXPECT_THROW((Position{0, 8}), std::out_of_range);
+  EXPECT_THROW((Position{8, 8}), std::out_of_range);
+  EXPECT_THROW((Position{-1, 1}), std::out_of_range);
+  EXPECT_THROW((Position{7, -3}), std::out_of_range);
+  EXPECT_THROW((Position{-10, -25}), std::out_of_range);
 }
 
 TEST(PositionTest, Equality) {

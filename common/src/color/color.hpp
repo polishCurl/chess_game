@@ -8,9 +8,7 @@ namespace chess {
 namespace common {
 
 /**
- * \brief Represents a chess color
- *
- * The color is an attribute of a chess player or a chess piece.
+ * \brief Chess piece color.
  */
 enum class Color { Black, White };
 
