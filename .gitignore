@@ -5,3 +5,4 @@ genhtml
 *.dat
 *.html
 *.png
+doxydoc

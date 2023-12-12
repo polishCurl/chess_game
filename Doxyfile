@@ -1,0 +1,12 @@
+PROJECT_NAME = "ChessGame"
+PROJECT_BRIEF = "Chess game written in C++ using best software practices"
+OUTPUT_DIRECTORY = ./doxydoc/
+BUILTIN_STL_SUPPORT = YES
+EXTRACT_ALL = YES
+INPUT = ./board/src/ ./common/src/ ./piece/src/
+RECURSIVE = YES
+HIDE_UNDOC_RELATIONS = NO
+HAVE_DOT = YES
+UML_LOOK = YES
+CALL_GRAPH = YES
+CALLER_GRAPH = YES
