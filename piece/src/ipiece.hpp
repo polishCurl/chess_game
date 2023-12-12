@@ -12,7 +12,7 @@ namespace piece {
 /**
  * \brief Represents a chess piece type.
  */
-enum class PieceType { kPawn, kKnight, kBishop, kRook, kQueen, kKing };
+enum class PieceType { Pawn, Knight, Bishop, Rook, Queen, King };
 
 /**
  * \brief Chess piece interface

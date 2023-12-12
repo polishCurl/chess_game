@@ -34,7 +34,7 @@ TEST_P(BishopColorFixture, GetName) {
 
 TEST_P(BishopColorFixture, GetType) {
   const Bishop bishop{Position{"H1"}, GetParam()};
-  EXPECT_EQ(bishop.getType(), PieceType::kBishop);
+  EXPECT_EQ(bishop.getType(), PieceType::Bishop);
 }
 
 TEST_P(BishopColorFixture, CanMove) {

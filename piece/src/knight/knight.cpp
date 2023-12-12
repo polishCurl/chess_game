@@ -26,7 +26,7 @@ bool Knight::move(const Position& next) {
 
 const char* Knight::getName() const { return kName; };
 
-PieceType Knight::getType() const { return PieceType::kKnight; }
+PieceType Knight::getType() const { return PieceType::Knight; }
 
 bool Knight::canJump() const { return true; };
 

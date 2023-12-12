@@ -20,11 +20,10 @@ TEST_P(PieceFactoryTest, Create) {
 
 TEST_F(PieceFactoryTest, DynamicCast) {
   std::unique_ptr<IPiece> piece =
-      factory_.create(PieceType::kQueen, Position{"H7"}, Color::White);
+      factory_.create(PieceType::Queen, Position{"H7"}, Color::White);
   EXPECT_NE(dynamic_cast<Queen*>(piece.get()), nullptr);
   EXPECT_EQ(dynamic_cast<King*>(piece.get()), nullptr);
 }
 
 INSTANTIATE_TEST_SUITE_P(PieceTypeFixture, PieceFactoryTest,
-                         ::testing::Values(PieceType::kPawn,
-                                           PieceType::kKnight));
+                         ::testing::Values(PieceType::Pawn, PieceType::Knight));

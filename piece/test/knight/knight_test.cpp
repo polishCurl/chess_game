@@ -34,7 +34,7 @@ TEST_P(KnightColorFixture, GetName) {
 
 TEST_P(KnightColorFixture, GetType) {
   const Knight knight{Position{"H1"}, GetParam()};
-  EXPECT_EQ(knight.getType(), PieceType::kKnight);
+  EXPECT_EQ(knight.getType(), PieceType::Knight);
 }
 
 TEST_P(KnightColorFixture, CanMove) {

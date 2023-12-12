@@ -61,7 +61,7 @@ TEST_P(PawnColorFixture, GetName) {
 
 TEST_P(PawnColorFixture, GetType) {
   const Pawn pawn{Position{"H1"}, GetParam()};
-  EXPECT_EQ(pawn.getType(), PieceType::kPawn);
+  EXPECT_EQ(pawn.getType(), PieceType::Pawn);
 }
 
 // TODO: Complete Pawn unit tests

@@ -17,17 +17,17 @@ std::unique_ptr<IPiece> PieceFactory::create(PieceType type,
                                              const Position& position,
                                              Color color) const {
   switch (type) {
-    case PieceType::kPawn:
+    case PieceType::Pawn:
       return std::make_unique<Pawn>(position, color);
-    case PieceType::kKnight:
+    case PieceType::Knight:
       return std::make_unique<Knight>(position, color);
-    case PieceType::kBishop:
+    case PieceType::Bishop:
       return std::make_unique<Bishop>(position, color);
-    case PieceType::kRook:
+    case PieceType::Rook:
       return std::make_unique<Rook>(position, color);
-    case PieceType::kQueen:
+    case PieceType::Queen:
       return std::make_unique<Queen>(position, color);
-    case PieceType::kKing:
+    case PieceType::King:
       return std::make_unique<King>(position, color);
     default:
       return nullptr;

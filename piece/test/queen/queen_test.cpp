@@ -34,7 +34,7 @@ TEST_P(QueenColorFixture, GetName) {
 
 TEST_P(QueenColorFixture, GetType) {
   const Queen queen{Position{"H1"}, GetParam()};
-  EXPECT_EQ(queen.getType(), PieceType::kQueen);
+  EXPECT_EQ(queen.getType(), PieceType::Queen);
 }
 
 TEST_P(QueenColorFixture, CanMove) {

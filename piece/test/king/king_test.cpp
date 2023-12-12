@@ -34,7 +34,7 @@ TEST_P(KingColorFixture, GetName) {
 
 TEST_P(KingColorFixture, GetType) {
   const King king{Position{"H1"}, GetParam()};
-  EXPECT_EQ(king.getType(), PieceType::kKing);
+  EXPECT_EQ(king.getType(), PieceType::King);
 }
 
 TEST_P(KingColorFixture, CanMove) {

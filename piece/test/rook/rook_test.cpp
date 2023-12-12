@@ -34,7 +34,7 @@ TEST_P(RookColorFixture, GetName) {
 
 TEST_P(RookColorFixture, GetType) {
   const Rook rook{Position{"H1"}, GetParam()};
-  EXPECT_EQ(rook.getType(), PieceType::kRook);
+  EXPECT_EQ(rook.getType(), PieceType::Rook);
 }
 
 TEST_P(RookColorFixture, CanMove) {

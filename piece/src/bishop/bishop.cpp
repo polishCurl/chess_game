@@ -26,7 +26,7 @@ bool Bishop::move(const Position& next) {
 
 const char* Bishop::getName() const { return kName; };
 
-PieceType Bishop::getType() const { return PieceType::kBishop; }
+PieceType Bishop::getType() const { return PieceType::Bishop; }
 
 }  // namespace piece
 }  // namespace chess
