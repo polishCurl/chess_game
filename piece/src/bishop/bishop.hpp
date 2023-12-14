@@ -16,7 +16,7 @@ class Bishop : public Piece {
   PieceType getType() const override;
 
  private:
-  static constexpr char kName[]{"Bishop"};
+  static inline constexpr char kName[]{"Bishop"};
 };
 
 }  // namespace piece

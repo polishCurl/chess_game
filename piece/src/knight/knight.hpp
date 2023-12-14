@@ -17,7 +17,7 @@ class Knight : public Piece {
   bool canJump() const override;
 
  private:
-  static constexpr char kName[]{"Knight"};
+  static inline constexpr char kName[]{"Knight"};
 };
 
 }  // namespace piece

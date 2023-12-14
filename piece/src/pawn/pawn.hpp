@@ -16,7 +16,7 @@ class Pawn : public Piece {
   PieceType getType() const override;
 
  private:
-  static constexpr char kName[]{"Pawn"};
+  static inline constexpr char kName[]{"Pawn"};
 };
 
 }  // namespace piece

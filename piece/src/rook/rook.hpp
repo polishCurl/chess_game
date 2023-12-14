@@ -16,7 +16,7 @@ class Rook : public Piece {
   PieceType getType() const override;
 
  private:
-  static constexpr char kName[]{"Rook"};
+  static inline constexpr char kName[]{"Rook"};
 };
 
 }  // namespace piece
