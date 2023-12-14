@@ -1,6 +1,8 @@
 #ifndef CHESS_PIECE_SRC_IPIECE_FACTORY_HPP_
 #define CHESS_PIECE_SRC_IPIECE_FACTORY_HPP_
 
+#include <memory>
+
 #include "piece/src/ipiece.hpp"
 
 namespace chess {

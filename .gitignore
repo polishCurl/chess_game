@@ -6,3 +6,4 @@ genhtml
 *.html
 *.png
 doxydoc
+MODULE.bazel*

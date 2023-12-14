@@ -4,9 +4,20 @@
 
 using namespace chess::common;
 
-TEST(ColorTest, StreamInsertion) {
-  EXPECT_EQ((std::stringstream{} << Color::White).str(), "white");
-  EXPECT_EQ((std::stringstream{} << Color::Black).str(), "black");
-  EXPECT_EQ((std::stringstream{} << static_cast<Color>(3)).str(),
-            "Invalid color!");
+TEST(ColorTest, StreamInsertionWhite) {
+  std::stringstream ss;
+  ss << Color::White;
+  EXPECT_EQ(ss.str(), "white");
+}
+
+TEST(ColorTest, StreamInsertionBlack) {
+  std::stringstream ss;
+  ss << Color::Black;
+  EXPECT_EQ(ss.str(), "black");
+}
+
+TEST(ColorTest, StreamInsertionInvalidColor) {
+  std::stringstream ss;
+  ss << static_cast<Color>(3);
+  EXPECT_EQ(ss.str(), "Invalid color!");
 }
