@@ -8,6 +8,30 @@ This project acts demonstrates the use of the best software engineering practice
 4. Test-Drivern Development (TDD)
 5. Containerization.
 
+## Setup
+The chess game is containerized to provide seemless delivery.
+`Dockefile` contains instructions to build an image with all required dependencies to build and run the application.
+
+Build the docker image:
+```
+docker build -t chess_game .
+```
+
+Run the container:
+```
+docker run --name chess_game_container -v $(pwd):/chess_game -it chess_game
+```
+
+Start an existing container:
+```
+docker start -i chess_game_container
+```
+
+Remove unnecessary images and containers:
+```
+docker image prune -a
+docker container prune
+```
 
 ## Design patterns
 A number of design patterns were used in the project:
@@ -16,7 +40,6 @@ A number of design patterns were used in the project:
 The Factory Method separates product construction code from the code that actually uses the product. 
 With Factory Methods for chess piece (`IPiece`) or chessboard (`IChessboard`), new types of chessboards of chess pieces can
 be added without modifying the logic of the game.
-
 
 
 ## Test-Drivern Development 
