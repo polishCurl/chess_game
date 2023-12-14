@@ -27,3 +27,9 @@ TEST_F(PieceFactoryTest, DynamicCast) {
 
 INSTANTIATE_TEST_SUITE_P(PieceTypeFixture, PieceFactoryTest,
                          ::testing::Values(PieceType::Pawn, PieceType::Knight));
+
+TEST_F(PieceFactoryTest, InvalidPieceType) {
+  std::unique_ptr<IPiece> piece = factory_.create(static_cast<PieceType>(10000),
+                                                  Position{"H7"}, Color::Black);
+  EXPECT_FALSE(piece);
+}
