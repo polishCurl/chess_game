@@ -33,6 +33,23 @@ docker image prune -a
 docker container prune
 ```
 
+## Useful commands
+Execute all unit tests:
+```
+bazel test //... --test_output=all 
+```
+
+Generate code coverage report (located in `genhtml/index.html`):
+```
+bazel coverage //...
+genhtml bazel-out/_coverage/_coverage_report.dat -o genhtml
+```
+
+Generate Doxygen docummentation (located in `doxydoc/html/index.html`):
+```
+doxygen
+```
+
 ## Design patterns
 A number of design patterns were used in the project:
 
@@ -42,8 +59,8 @@ With Factory Methods for chess piece (`IPiece`) or chessboard (`IChessboard`), n
 be added without modifying the logic of the game.
 
 
-## Test-Drivern Development 
-Each class has been unit-tested with 100% coverage.
+## Testing
+Each class has been unit-tested with ~100% coverage.
 Unit tests are implemented using the GoogleTest framework.
 Each interface has an associated mock created using the GoogleMock framework.
 Each class is tested using only the public APIs (with minor exceptions).
