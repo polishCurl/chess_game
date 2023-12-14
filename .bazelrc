@@ -1,4 +1,4 @@
-build --cxxopt='-std=c++14'
+build --cxxopt='-std=c++17'
 build --cxxopt='-Werror'
 build --cxxopt='-Wall'
 build --cxxopt='-O3'
