@@ -1,4 +1,4 @@
-#include "src/move/move.hpp"
+#include "common/src/move/move.hpp"
 
 #include <cmath>
 

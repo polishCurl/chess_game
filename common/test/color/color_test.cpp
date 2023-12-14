@@ -1,4 +1,4 @@
-#include "src/color/color.hpp"
+#include "common/src/color/color.hpp"
 
 #include "gtest/gtest.h"
 

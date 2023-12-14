@@ -2,7 +2,7 @@
 #define CHESS_PIECE_MOCK_PIECE_MOCK_HPP_
 
 #include "gmock/gmock.h"
-#include "src/ipiece.hpp"
+#include "piece/src/ipiece.hpp"
 
 namespace chess {
 

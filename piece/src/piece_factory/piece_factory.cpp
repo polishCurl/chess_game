@@ -1,11 +1,11 @@
-#include "src/piece_factory/piece_factory.hpp"
+#include "piece/src/piece_factory/piece_factory.hpp"
 
-#include "src/bishop/bishop.hpp"
-#include "src/king/king.hpp"
-#include "src/knight/knight.hpp"
-#include "src/pawn/pawn.hpp"
-#include "src/queen/queen.hpp"
-#include "src/rook/rook.hpp"
+#include "piece/src/bishop/bishop.hpp"
+#include "piece/src/king/king.hpp"
+#include "piece/src/knight/knight.hpp"
+#include "piece/src/pawn/pawn.hpp"
+#include "piece/src/queen/queen.hpp"
+#include "piece/src/rook/rook.hpp"
 
 namespace chess {
 

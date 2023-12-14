@@ -1,4 +1,4 @@
-#include "src/bishop/bishop.hpp"
+#include "piece/src/bishop/bishop.hpp"
 
 #include "gtest/gtest.h"
 

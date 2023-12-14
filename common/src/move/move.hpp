@@ -5,8 +5,8 @@
 #include <iostream>
 #include <vector>
 
-#include "src/color/color.hpp"
-#include "src/position/position.hpp"
+#include "common/src/color/color.hpp"
+#include "common/src/position/position.hpp"
 
 namespace chess {
 

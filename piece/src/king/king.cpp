@@ -1,4 +1,4 @@
-#include "src/king/king.hpp"
+#include "piece/src/king/king.hpp"
 
 namespace chess {
 

@@ -1,8 +1,8 @@
 #ifndef CHESS_BOARD_MOCK_CHESSBOARD_MOCK_HPP_
 #define CHESS_BOARD_MOCK_CHESSBOARD_MOCK_HPP_
 
+#include "chessboard/src/ichessboard.hpp"
 #include "gmock/gmock.h"
-#include "src/ichessboard.hpp"
 
 namespace chess {
 

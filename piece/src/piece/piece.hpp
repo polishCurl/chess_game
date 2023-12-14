@@ -1,7 +1,7 @@
 #ifndef CHESS_PIECE_SRC_PIECE_HPP_
 #define CHESS_PIECE_SRC_PIECE_HPP_
 
-#include "src/ipiece.hpp"
+#include "piece/src/ipiece.hpp"
 
 namespace chess {
 

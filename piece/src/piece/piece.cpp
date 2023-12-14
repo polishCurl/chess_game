@@ -1,4 +1,4 @@
-#include "src/piece/piece.hpp"
+#include "piece/src/piece/piece.hpp"
 
 #include <sstream>
 

@@ -1,8 +1,8 @@
-#include "src/piece_factory/piece_factory.hpp"
+#include "piece/src/piece_factory/piece_factory.hpp"
 
 #include "gtest/gtest.h"
-#include "src/king/king.hpp"
-#include "src/queen/queen.hpp"
+#include "piece/src/king/king.hpp"
+#include "piece/src/queen/queen.hpp"
 
 using namespace chess::piece;
 using namespace chess::common;

@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "src/time/itime.hpp"
+#include "logger/src/time/itime.hpp"
 
 namespace chess {
 
